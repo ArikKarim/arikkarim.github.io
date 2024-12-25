@@ -1,1 +1,33 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arik Karim</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="toggle-container">
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="container">
+        <h1>Arik Karim</h1>
+        <p>Welcome to my portfolio website. Navigate to learn more about my research and writing.</p>
+        <nav>
+            <ul>
+                <li><a href="pageone.html">Research</a></li>
+                <li><a href="pagetwo.html">Writing</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        toggle.addEventListener('change', () => {
+            document.documentElement.toggleAttribute('data-theme', toggle.checked ? 'dark' : '');
+        });
+    </script>
+</body>
+</html>
