@@ -111,6 +111,32 @@ section h2 {
     color: #007BFF;
 }
 
+/* Hover effects with different colors for each link */
+.footer .linkedin:hover {
+    text-decoration: underline;
+    color: #0A66C2; /* LinkedIn Blue */
+}
+
+.footer .instagram:hover {
+    text-decoration: underline;
+    color: #E4405F; /* Instagram Pink */
+}
+
+.footer .substack:hover {
+    text-decoration: underline;
+    color: #9b4d96; /* Substack Purple */
+}
+
+.footer .twitter:hover {
+    text-decoration: underline;
+    color: #1DA1F2; /* Twitter Blue */
+}
+
+.footer .scholar:hover {
+    text-decoration: underline;
+    color: #4285F4; /* Google Blue */
+}
+
 /* Dark mode styles */
 body.dark-mode {
     background-color: #121212;
