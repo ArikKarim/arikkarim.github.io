@@ -114,6 +114,47 @@
       border: none;
       border-radius: 4px;
     }
+
+    .social-icons {
+      margin-top: 1.5rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      filter: grayscale(0%);
+    }
+
+    .linkedin {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/174/174857.png');
+    }
+
+    .google-scholar {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .instagram {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/174/174855.png');
+    }
+
+    .email {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/561/561127.png');
+    }
+
+    .github {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/733/733553.png');
+    }
   </style>
 </head>
 <body>
@@ -151,6 +192,13 @@
   <section id="contact" class="contact">
     <h2>Contact Me</h2>
     <p>Feel free to reach out! <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <div class="social-icons">
+      <a href="https://linkedin.com/in/yourprofile" class="linkedin" target="_blank" title="LinkedIn"></a>
+      <a href="https://scholar.google.com/citations?user=yourid" class="google-scholar" target="_blank" title="Google Scholar"></a>
+      <a href="https://instagram.com/yourprofile" class="instagram" target="_blank" title="Instagram"></a>
+      <a href="mailto:your.email@example.com" class="email" target="_blank" title="Email"></a>
+      <a href="https://github.com/yourusername" class="github" target="_blank" title="GitHub"></a>
+    </div>
   </section>
 
   <script>
