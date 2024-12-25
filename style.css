@@ -23,3 +23,9 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin-bottom: 1em;
 }
+
+.container {
+    text-align: left;
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Optional: limit the container width */
+}
