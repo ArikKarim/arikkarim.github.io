@@ -3,213 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Welcome Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --background-color: #f9f9f9;
-      --text-color: #333;
-      --header-bg-color: #222;
-      --header-text-color: white;
-      --project-bg-color: #f0f0f0;
-      --contact-bg-color: #222;
-      --contact-text-color: white;
-    }
-
-    [data-theme="dark"] {
-      --background-color: #121212;
-      --text-color: #f9f9f9;
-      --header-bg-color: #1e1e1e;
-      --header-text-color: #f9f9f9;
-      --project-bg-color: #1e1e1e;
-      --contact-bg-color: #1e1e1e;
-      --contact-text-color: #f9f9f9;
-    }
-
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
-      color: var(--text-color);
-      background: var(--background-color);
-      line-height: 1.6;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: var(--header-bg-color);
-      color: var(--header-text-color);
-    }
-
-    header h1 {
       margin: 0;
-    }
-
-    nav a {
-      color: var(--header-text-color);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 4rem 2rem;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+      color: #333;
       text-align: center;
     }
 
-    .intro {
-      background: var(--header-bg-color);
-      color: var(--header-text-color);
-      padding: 5rem 2rem;
-    }
-
-    .intro h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .projects {
-      background: var(--background-color);
-    }
-
-    .projects h2 {
-      margin-bottom: 2rem;
-    }
-
-    .project {
-      display: inline-block;
-      width: 300px;
-      margin: 1rem;
-      padding: 1.5rem;
-      background: var(--project-bg-color);
+    .content {
+      max-width: 600px;
+      padding: 20px;
+      background: #fff;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: left;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .project h3 {
-      margin-top: 0;
+    h1 {
+      margin-bottom: 16px;
     }
 
-    .contact {
-      background: var(--contact-bg-color);
-      color: var(--contact-text-color);
-      padding: 3rem 2rem;
-    }
-
-    .contact a {
-      color: #4CAF50;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .theme-toggle {
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      background: var(--header-text-color);
-      color: var(--header-bg-color);
-      border: none;
-      border-radius: 4px;
-    }
-
-    .social-icons {
-      margin-top: 1.5rem;
-    }
-
-    .social-icons a {
-      margin: 0 0.5rem;
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background-size: cover;
-      filter: grayscale(100%);
-      transition: filter 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      filter: grayscale(0%);
-    }
-
-    .linkedin {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/174/174857.png');
-    }
-
-    .google-scholar {
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg');
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-
-    .instagram {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/174/174855.png');
-    }
-
-    .email {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/561/561127.png');
-    }
-
-    .github {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/733/733553.png');
+    p {
+      font-size: 18px;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>My Portfolio</h1>
-    <nav>
-      <a href="#intro">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-  </header>
-
-  <section id="intro" class="intro">
-    <h2>Hi, I'm [Your Name]</h2>
-    <p>Welcome to my personal website! I build things for the web and beyond.</p>
-  </section>
-
-  <section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <div class="project">
-      <h3>Project One</h3>
-      <p>A brief description of your project. <a href="#">View more</a></p>
-    </div>
-    <div class="project">
-      <h3>Project Two</h3>
-      <p>A brief description of your project. <a href="#">View more</a></p>
-    </div>
-    <div class="project">
-      <h3>Project Three</h3>
-      <p>A brief description of your project. <a href="#">View more</a></p>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Feel free to reach out! <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <div class="social-icons">
-      <a href="https://linkedin.com/in/yourprofile" class="linkedin" target="_blank" title="LinkedIn"></a>
-      <a href="https://scholar.google.com/citations?user=yourid" class="google-scholar" target="_blank" title="Google Scholar"></a>
-      <a href="https://instagram.com/yourprofile" class="instagram" target="_blank" title="Instagram"></a>
-      <a href="mailto:your.email@example.com" class="email" target="_blank" title="Email"></a>
-      <a href="https://github.com/yourusername" class="github" target="_blank" title="GitHub"></a>
-    </div>
-  </section>
-
-  <script>
-    function toggleTheme() {
-      const currentTheme = document.body.getAttribute('data-theme');
-      document.body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-    }
-
-    // Set default theme based on user preference
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.body.setAttribute('data-theme', prefersDarkScheme ? 'dark' : 'light');
-  </script>
+  <div class="content">
+    <h1>Welcome to My Website</h1>
+    <p>This is a simple one-page website. Feel free to customize this content to fit your needs.</p>
+  </div>
 </body>
 </html>
