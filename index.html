@@ -6,12 +6,32 @@
   <title>My Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --background-color: #f9f9f9;
+      --text-color: #333;
+      --header-bg-color: #222;
+      --header-text-color: white;
+      --project-bg-color: #f0f0f0;
+      --contact-bg-color: #222;
+      --contact-text-color: white;
+    }
+
+    [data-theme="dark"] {
+      --background-color: #121212;
+      --text-color: #f9f9f9;
+      --header-bg-color: #1e1e1e;
+      --header-text-color: #f9f9f9;
+      --project-bg-color: #1e1e1e;
+      --contact-bg-color: #1e1e1e;
+      --contact-text-color: #f9f9f9;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      color: #333;
+      color: var(--text-color);
+      background: var(--background-color);
       line-height: 1.6;
-      background: #f9f9f9;
     }
 
     header {
@@ -19,8 +39,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: #222;
-      color: white;
+      background: var(--header-bg-color);
+      color: var(--header-text-color);
     }
 
     header h1 {
@@ -28,7 +48,7 @@
     }
 
     nav a {
-      color: white;
+      color: var(--header-text-color);
       text-decoration: none;
       margin-left: 1.5rem;
       font-weight: bold;
@@ -40,8 +60,8 @@
     }
 
     .intro {
-      background: #333;
-      color: white;
+      background: var(--header-bg-color);
+      color: var(--header-text-color);
       padding: 5rem 2rem;
     }
 
@@ -51,7 +71,7 @@
     }
 
     .projects {
-      background: white;
+      background: var(--background-color);
     }
 
     .projects h2 {
@@ -63,7 +83,7 @@
       width: 300px;
       margin: 1rem;
       padding: 1.5rem;
-      background: #f0f0f0;
+      background: var(--project-bg-color);
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: left;
@@ -74,8 +94,8 @@
     }
 
     .contact {
-      background: #222;
-      color: white;
+      background: var(--contact-bg-color);
+      color: var(--contact-text-color);
       padding: 3rem 2rem;
     }
 
@@ -83,6 +103,16 @@
       color: #4CAF50;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--header-text-color);
+      color: var(--header-bg-color);
+      border: none;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -94,6 +124,7 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
   </header>
 
   <section id="intro" class="intro">
@@ -121,5 +152,16 @@
     <h2>Contact Me</h2>
     <p>Feel free to reach out! <a href="mailto:your.email@example.com">your.email@example.com</a></p>
   </section>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      document.body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    }
+
+    // Set default theme based on user preference
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.body.setAttribute('data-theme', prefersDarkScheme ? 'dark' : 'light');
+  </script>
 </body>
 </html>
