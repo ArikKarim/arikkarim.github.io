@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; /* Same thickness as footer border */
 }
 
 .header h1 {
@@ -96,7 +96,7 @@ section h2 {
     font-size: 0.85rem;
     color: #666;
     padding-top: 20px;
-    border-top: 2px solid #ccc; /* Add a line above the footer */
+    border-top: 1px solid #ccc; /* Same thickness as the header's bottom border */
 }
 
 .footer a {
