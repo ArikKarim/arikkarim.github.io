@@ -1,1 +1,84 @@
+/* styles.css */
 
+/* Base styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light theme */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Toggle switch styles */
+.toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 25px;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: 2.5px;
+    left: 2.5px;
+    transition: transform 0.3s;
+}
+
+input:checked + .slider {
+    background-color: #666;
+}
+
+input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+/* Responsive design */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 15px;
+}
