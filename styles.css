@@ -9,9 +9,10 @@ body {
     transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
 }
 
-body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 15px;
 }
 
 /* Header styles */
@@ -20,7 +21,7 @@ body.dark-mode {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; /* Same thickness as footer border */
 }
 
 .header h1 {
@@ -78,6 +79,16 @@ input:checked + .slider:before {
     transform: translateX(25px);
 }
 
+/* Section styles */
+section {
+    margin: 20px 0;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
 /* Footer styles */
 .footer {
     text-align: center;
@@ -85,7 +96,7 @@ input:checked + .slider:before {
     font-size: 0.85rem;
     color: #666;
     padding-top: 20px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ccc; /* Same thickness as the header's bottom border */
 }
 
 .footer a {
@@ -95,27 +106,38 @@ input:checked + .slider:before {
     transition: color 0.3s, text-decoration 0.3s;
 }
 
+/* Hover effects with different colors for each link */
 .footer .linkedin:hover {
     text-decoration: underline;
-    color: #0A66C2;
+    color: #0A66C2; /* LinkedIn Blue */
 }
 
 .footer .instagram:hover {
     text-decoration: underline;
-    color: #E4405F;
+    color: #E4405F; /* Instagram Pink */
 }
 
 .footer .substack:hover {
     text-decoration: underline;
-    color: #9b4d96;
+    color: #9b4d96; /* Substack Purple */
 }
 
 .footer .twitter:hover {
     text-decoration: underline;
-    color: #1DA1F2;
+    color: #1DA1F2; /* Twitter Blue */
 }
 
 .footer .scholar:hover {
     text-decoration: underline;
-    color: #4285F4;
+    color: #4285F4; /* Google Blue */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.footer.dark-mode {
+    color: #aaaaaa;
 }
