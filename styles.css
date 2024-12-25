@@ -106,11 +106,6 @@ section h2 {
     transition: color 0.3s, text-decoration 0.3s;
 }
 
-.footer a:hover {
-    text-decoration: underline;
-    color: #007BFF;
-}
-
 /* Hover effects with different colors for each link */
 .footer .linkedin:hover {
     text-decoration: underline;
