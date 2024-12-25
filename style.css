@@ -5,13 +5,12 @@ body {
     font-size: 16px;
     color: #333;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,6 +25,14 @@ p {
 
 .container {
     text-align: left;
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Optional: limit the container width */
+    width: 90%; /* Use a flexible width for smaller screens */
+    max-width: 600px; /* Limit the maximum width for readability */
+    margin: auto;
+    box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%; /* Slightly narrower width for very small screens */
+    }
 }
