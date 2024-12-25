@@ -1,1 +1,28 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Arik Karim</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="toggle-container">
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="container">
+        <h1>Research</h1>
+        <p>Details about your research will go here.</p>
+        <a href="index.html">Back to Home</a>
+    </div>
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        toggle.addEventListener('change', () => {
+            document.documentElement.toggleAttribute('data-theme', toggle.checked ? 'dark' : '');
+        });
+    </script>
+</body>
+</html>
