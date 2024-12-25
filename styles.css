@@ -95,11 +95,6 @@ input:checked + .slider:before {
     transition: color 0.3s, text-decoration 0.3s;
 }
 
-/* Dark mode specific link color */
-.footer.dark-mode {
-    color: #aaaaaa;
-}
-
 .footer .linkedin:hover {
     text-decoration: underline;
     color: #0A66C2;
