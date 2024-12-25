@@ -1,177 +1,207 @@
-/* General Reset */
-* {
+/* Importing the Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif; /* Use Inter font */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    background-color: #ffffff;
-    color: #333333;
+    background-color: #f4f4f4;
+    color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dddddd;
+/* Dark theme styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
 }
 
-.navbar h1 {
-    font-size: 1.5rem;
-    color: #333333;
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    transition: background-color 0.3s;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
+body.dark-mode header {
+    background-color: #1e1e1e;
 }
 
-.nav-links a {
+header nav ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
     text-decoration: none;
-    color: #333333;
-    font-size: 1rem;
-    transition: color 0.3s;
+    font-size: 18px;
+    font-weight: 500;
 }
 
-.nav-links a:hover {
-    color: #007bff;
+header nav ul li a:hover {
+    text-decoration: underline;
 }
 
-/* Toggle Switch */
+/* Main Section Styles */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode main {
+    background-color: #181818;
+}
+
+h1, h2 {
+    color: #333;
+    font-weight: 600;
+}
+
+body.dark-mode h1, body.dark-mode h2 {
+    color: #fff;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* About Section Styling */
+#about {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode #about {
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+#about p {
+    line-height: 1.6;
+}
+
+/* Contact Section Styling */
+#contact {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode #contact {
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+#contact a {
+    color: #333;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+}
+
+/* Links and Buttons Styling */
+a {
+    text-decoration: none;
+    color: #0077cc;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Dark Mode Toggle Switch */
 .toggle-container {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
 }
 
-.toggle-switch {
+.toggle-container label {
     position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
 }
 
-.toggle-switch input {
+.toggle-container input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.slider {
+.toggle-container .switch {
     position: absolute;
+    cursor: pointer;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #cccccc;
-    border-radius: 20px;
-    transition: 0.4s;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 50px;
+    transition: background-color 0.3s;
 }
 
-.slider:before {
+.toggle-container input:checked + .switch {
+    background-color: #4caf50;
+}
+
+.switch::before {
+    content: '';
     position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
+    top: 3px;
     left: 3px;
-    bottom: 3px;
-    background-color: #ffffff;
+    width: 19px;
+    height: 19px;
+    background-color: white;
     border-radius: 50%;
-    transition: 0.4s;
+    transition: transform 0.3s;
 }
 
-input:checked + .slider {
-    background-color: #007bff;
+input:checked + .switch::before {
+    transform: translateX(25px);
 }
 
-input:checked + .slider:before {
-    transform: translateX(20px);
-}
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 
-/* Landing Section */
-.landing {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    text-align: center;
-    padding: 2rem;
-    background-color: #e9ecef;
-}
+    header nav ul li a {
+        font-size: 16px;
+    }
 
-.landing .intro h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.landing .intro p {
-    font-size: 1.2rem;
-    color: #666666;
-}
-
-/* Content Sections */
-.content-section {
-    padding: 4rem 2rem;
-    text-align: center;
-    background-color: #ffffff;
-}
-
-.content-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.content-section p {
-    font-size: 1.1rem;
-    color: #555555;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #f8f9fa;
-    border-top: 1px solid #dddddd;
-    color: #777777;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: #f1f1f1;
-}
-
-body.dark-mode .navbar {
-    background-color: #1f1f1f;
-    border-bottom-color: #333333;
-}
-
-body.dark-mode .nav-links a {
-    color: #f1f1f1;
-}
-
-body.dark-mode .nav-links a:hover {
-    color: #90caf9;
-}
-
-body.dark-mode .landing {
-    background-color: #1e1e1e;
-}
-
-body.dark-mode .content-section {
-    background-color: #1f1f1f;
-    color: #cccccc;
-}
-
-body.dark-mode footer {
-    background-color: #1f1f1f;
-    border-top-color: #333333;
-    color: #888888;
+    main {
+        padding: 15px;
+    }
 }
