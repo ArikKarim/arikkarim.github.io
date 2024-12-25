@@ -1,69 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arik Karim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="writing.html">Writing</a></li>
-            </ul>
-        </nav>
-        <!-- Dark Mode Toggle -->
-        <div class="toggle-container">
-            <input type="checkbox" id="darkModeToggle">
-            <label for="darkModeToggle" class="switch"></label>
-        </div>
-    </header>
+  <header>
+    <h1>Arik Karim</h1>
+    <div class="theme-toggle">
+      <label for="theme-switch" class="toggle-label">🌙</label>
+      <input type="checkbox" id="theme-switch" class="theme-switch" />
+      <label for="theme-switch" class="toggle-label">🌞</label>
+    </div>
+  </header>
 
-    <main>
-        <section id="intro">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Explore my projects and work in Research and Writing.</p>
-        </section>
+  <main>
+    <section>
+      <h2>Welcome to My Portfolio</h2>
+      <p>This is the landing page of my portfolio website. Here, you can find information about my research and writing.</p>
+      <nav>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="writing.html">Writing</a></li>
+        </ul>
+      </nav>
+    </section>
+  </main>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Brief introduction about yourself and your career. Showcase your skills and experience.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, feel free to <a href="mailto:youremail@example.com">email me</a>.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        // JavaScript to handle theme toggle
-        const toggleSwitch = document.getElementById('darkModeToggle');
-        
-        // Check for stored theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            toggleSwitch.checked = true;
-        }
-
-        // Toggle theme when checkbox is changed
-        toggleSwitch.addEventListener('change', () => {
-            if (toggleSwitch.checked) {
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
