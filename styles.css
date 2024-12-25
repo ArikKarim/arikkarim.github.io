@@ -109,26 +109,37 @@ section h2 {
 /* Hover effects with different colors for each link */
 .footer .linkedin:hover {
     text-decoration: underline;
+    font-weight: bold;
     color: #0A66C2; /* LinkedIn Blue */
+}
+
+.footer .ssrn:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #0a1b49; /* SSRN Purple */
 }
 
 .footer .instagram:hover {
     text-decoration: underline;
+    font-weight: bold;
     color: #E4405F; /* Instagram Pink */
 }
 
 .footer .substack:hover {
     text-decoration: underline;
-    color: #9b4d96; /* Substack Purple */
+    font-weight: bold;
+    color: #ff6719; /* Substack Orange */
 }
 
 .footer .twitter:hover {
     text-decoration: underline;
+    font-weight: bold;
     color: #1DA1F2; /* Twitter Blue */
 }
 
 .footer .scholar:hover {
     text-decoration: underline;
+    font-weight: bold;
     color: #4285F4; /* Google Blue */
 }
 
