@@ -42,18 +42,43 @@ nav {
 }
 
 .theme-toggle {
-  display: inline-flex;
-  align-items: center;
+  position: relative;
 }
 
 .theme-switch {
   display: none;
 }
 
-.toggle-label {
-  font-size: 1.5rem;
+.slider {
+  position: absolute;
   cursor: pointer;
-  margin: 0 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.theme-switch:checked + .slider {
+  background-color: #4CAF50;
+}
+
+.theme-switch:checked + .slider:before {
+  transform: translateX(20px);
 }
 
 /* Main Content */
