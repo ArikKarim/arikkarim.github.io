@@ -84,15 +84,17 @@ nav {
 /* Main Content */
 main {
   padding: 100px 20px 20px;
-  text-align: center;
+  text-align: left;  /* Align text to the left */
 }
 
 h2 {
   margin-bottom: 20px;
+  font-size: 2rem;
 }
 
 p {
   font-size: 1.1rem;
+  line-height: 1.7;
 }
 
 /* Dark Mode Styles */
