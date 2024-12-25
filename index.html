@@ -3,48 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arik Karim - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="navbar">
-        <h1>Arik Karim</h1>
+    <header>
         <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#writing">Writing</a></li>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="writing.html">Writing</a></li>
             </ul>
         </nav>
+        <!-- Dark Mode Toggle -->
         <div class="toggle-container">
-            <label class="toggle-switch">
-                <input type="checkbox" id="themeToggle">
-                <span class="slider"></span>
-            </label>
+            <input type="checkbox" id="darkModeToggle">
+            <label for="darkModeToggle" class="switch"></label>
         </div>
     </header>
 
-    <section class="landing">
-        <div class="intro">
-            <h2>Welcome to My Portfolio</h2>
-            <p>Explore my work in research and writing. Let’s connect and create something impactful together.</p>
-        </div>
-    </section>
+    <main>
+        <section id="intro">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Explore my projects and work in Research and Writing.</p>
+        </section>
 
-    <section id="research" class="content-section">
-        <h2>Research</h2>
-        <p>Discover the projects and studies I’ve been passionate about, ranging from AI development to environmental solutions.</p>
-    </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Brief introduction about yourself and your career. Showcase your skills and experience.</p>
+        </section>
 
-    <section id="writing" class="content-section">
-        <h2>Writing</h2>
-        <p>Here, you’ll find my articles, essays, and blogs that share ideas, insights, and stories.</p>
-    </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to get in touch, feel free to <a href="mailto:youremail@example.com">email me</a>.</p>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Arik Karim. All Rights Reserved.</p>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // JavaScript to handle theme toggle
+        const toggleSwitch = document.getElementById('darkModeToggle');
+        
+        // Check for stored theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+        }
+
+        // Toggle theme when checkbox is changed
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
