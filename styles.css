@@ -107,6 +107,12 @@ section h2 {
 }
 
 /* Hover effects with different colors for each link */
+.footer .email:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #d34b3d; /* Email Red */
+}
+
 .footer .linkedin:hover {
     text-decoration: underline;
     font-weight: bold;
