@@ -18,7 +18,7 @@ function applyDarkMode(isDark) {
     }
 }
 
-// Check if there's a stored theme preference in localStorage
+// Checks if there's a stored theme preference in localStorage
 const savedTheme = localStorage.getItem('theme');
 
 // If no theme preference is saved, default to dark mode
@@ -32,9 +32,9 @@ if (savedTheme === 'dark') {
     localStorage.setItem('theme', 'dark'); // Save dark mode as the default
 }
 
-// Listen for changes to the toggle switch
+// Listens for changes to the toggle switch
 toggleSwitch.addEventListener('change', () => {
-    // Play the appropriate sound when the toggle button is clicked
+    // Plays the appropriate sound when the toggle button is clicked
     if (toggleSwitch.checked) {
         toggleSound.play(); // Play sound when toggling to dark mode
         localStorage.setItem('theme', 'dark');
