@@ -17,9 +17,8 @@ body {
 
 /* Link styling */
 a {
-    color: #7f7f7f; /* Default link color for light mode (gray like untoggled switch) */
+    color: #007BFF; /* Default link color */
     text-decoration: none;
-    transition: color 0.3s; /* Smooth transition for color change */
 }
 
 a:hover {
@@ -64,7 +63,7 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc; /* Default background (light mode) */
+    background-color: #ccc; /* Default background */
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -83,7 +82,7 @@ a:hover {
 }
 
 input:checked + .slider {
-    background-color: #007BFF; /* Toggle ON color (dark mode) */
+    background-color: #007BFF; /* Toggle ON color */
 }
 
 input:checked + .slider:before {
@@ -113,7 +112,7 @@ section h2 {
     text-align: center;
     margin-top: 40px;
     font-size: 0.85rem;
-    color: #666; /* Light gray color for footer */
+    color: #666;
     padding-top: 20px;
     border-top: 1px solid #ccc; /* Matches header border thickness */
 }
@@ -126,12 +125,12 @@ section h2 {
     transition: color 0.3s, text-decoration 0.3s;
 }
 
-/* Footer link hover effects with unique colors */
 .footer a:hover {
     text-decoration: underline;
     font-weight: bold; /* Bold effect on hover */
 }
 
+/* Footer link hover effects with unique colors */
 .footer .email:hover {
     color: #d34b3d; /* Email Red */
 }
@@ -170,17 +169,6 @@ body.dark-mode {
     color: #ffffff;
 }
 
-/* Links in dark mode - same color as the toggle switch */
-body.dark-mode a {
-    color: #007BFF; /* Link color in dark mode matches the toggle switch color */
-}
-
-/* Footer text in dark mode */
 .footer.dark-mode {
     color: #aaaaaa; /* Dimmed footer text in dark mode */
-}
-
-/* Footer links in dark mode */
-.footer.dark-mode a {
-    color: #007BFF; /* Footer links in dark mode match the toggle switch color */
 }
