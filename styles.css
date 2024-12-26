@@ -17,13 +17,12 @@ body {
 
 /* Link styling */
 a {
-    color: inherit; /* Inherit text color */
+    color: #007BFF; /* Inherit text color */
     text-decoration: none;
 }
 
-/* Hover effect */
+/* Link hover effect */
 a:hover {
-    color: #007BFF; /* Set the hover color to blue */
     text-decoration: underline;
 }
 
