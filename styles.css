@@ -17,11 +17,10 @@ body {
 
 /* Link styling */
 a {
-    color: #007BFF; /* Inherit text color */
+    color: #007BFF; /* Default link color */
     text-decoration: none;
 }
 
-/* Link hover effect */
 a:hover {
     text-decoration: underline;
 }
@@ -32,7 +31,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #ccc; /* Same thickness as footer border */
+    border-bottom: 1px solid #ccc; /* Matches footer border thickness */
 }
 
 .header h1 {
@@ -64,7 +63,7 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #ccc; /* Default background */
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -83,7 +82,7 @@ a:hover {
 }
 
 input:checked + .slider {
-    background-color: #007BFF;
+    background-color: #007BFF; /* Toggle ON color */
 }
 
 input:checked + .slider:before {
@@ -104,9 +103,9 @@ section h2 {
 .footer-line {
     width: 100%;
     border: none;
-    height: 2px; /* Same thickness as header line */
+    height: 2px; /* Matches header line thickness */
     background-color: #ccc;
-    margin: 20px 0; /* Match spacing to the header */
+    margin: 20px 0; /* Matches header spacing */
 }
 
 .footer {
@@ -115,28 +114,29 @@ section h2 {
     font-size: 0.85rem;
     color: #666;
     padding-top: 20px;
-    border-top: 1px solid #ccc; /* Same thickness as the header's bottom border */
+    border-top: 1px solid #ccc; /* Matches header border thickness */
 }
 
+/* Footer link styling */
 .footer a {
     text-decoration: none;
-    color: inherit;
+    color: inherit; /* Inherits default text color */
     margin: 0 5px;
     transition: color 0.3s, text-decoration 0.3s;
 }
 
 .footer a:hover {
     text-decoration: underline;
-    font-weight: bold; /* Bold effect */
+    font-weight: bold; /* Bold effect on hover */
 }
 
-/* Hover effects with different colors for each link */
+/* Footer link hover effects with unique colors */
 .footer .email:hover {
     color: #d34b3d; /* Email Red */
 }
 
 .footer .github:hover {
-    color: #333; /* Github Indigo */
+    color: #333; /* Github Dark Gray */
 }
 
 .footer .linkedin:hover {
@@ -160,7 +160,7 @@ section h2 {
 }
 
 .footer .scholar:hover {
-    color: #4285F4; /* Google Blue */
+    color: #4285F4; /* Google Scholar Blue */
 }
 
 /* Dark mode styles */
@@ -170,5 +170,5 @@ body.dark-mode {
 }
 
 .footer.dark-mode {
-    color: #aaaaaa;
+    color: #aaaaaa; /* Dimmed footer text in dark mode */
 }
