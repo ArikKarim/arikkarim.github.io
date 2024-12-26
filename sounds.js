@@ -1,7 +1,7 @@
 // Get the toggle switch element
 const toggleSwitch = document.getElementById('theme-toggle');
-const toggleSound = document.getElementById('toggle-sound'); // Get the toggle sound element
-const untoggleSound = document.getElementById('untoggle-sound'); // Get the untoggle sound element
+const toggleSound = document.getElementById('toggle-sound'); // Retrieves the toggle sound element
+const untoggleSound = document.getElementById('untoggle-sound'); // Retrieves the untoggle sound element
 
 // Set volume for both sounds (adjust this value as needed)
 toggleSound.volume = 0.1; // 10% volume for the toggle sound (dark mode)
