@@ -29,6 +29,18 @@ body {
     margin: 0;
 }
 
+/* Link styling */
+a {
+    color: inherit; /* Inherit text color */
+    text-decoration: none;
+}
+
+/* Hover effect */
+a:hover {
+    color: #007BFF; /* Set the hover color to blue */
+    text-decoration: underline;
+}
+
 /* Toggle switch styles */
 .toggle-container {
     position: relative;
