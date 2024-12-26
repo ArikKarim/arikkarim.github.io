@@ -101,6 +101,14 @@ section h2 {
 }
 
 /* Footer styles */
+.footer-line {
+    width: 100%;
+    border: none;
+    height: 2px; /* Same thickness as header line */
+    background-color: #ccc;
+    margin: 20px 0; /* Match spacing to the header */
+}
+
 .footer {
     text-align: center;
     margin-top: 40px;
