@@ -40,6 +40,30 @@ a:hover {
     margin: 0;
 }
 
+.gradient-text {
+    font-size: 3rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 5s ease infinite;
+}
+
+/* Animation for moving gradient */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 /* Toggle switch styles */
 .toggle-container {
     position: relative;
