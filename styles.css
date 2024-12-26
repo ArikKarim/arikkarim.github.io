@@ -127,6 +127,10 @@ section h2 {
     color: #d34b3d; /* Email Red */
 }
 
+.footer .github:hover {
+    color: #4078c0; /* Github Indigo */
+}
+
 .footer .linkedin:hover {
     color: #0A66C2; /* LinkedIn Blue */
 }
