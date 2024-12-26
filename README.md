@@ -1,6 +1,6 @@
 # 🌐 arikkarim.github.io
 
-You've reached the README.md of Arik Karim's personal website! 
+You've reached the README.md of Arik Karim's personal website! *Thanks for stopping by!*
 
 ## ℹ️ Overview
 
@@ -15,6 +15,4 @@ I made this site for two reasons: (1) to practice/refine my HTML/CSS/JS skills a
 
 ## 💭 Contact
 
-arik.karim (at) gwu (dot) edu
-
-*Thanks for stopping by!*
+arik.karim (at) gwu (dot) edu or my LinkedIn!
