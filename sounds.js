@@ -1,47 +1,45 @@
-// Get the toggle switch element
+// Retrieve elements for the toggle switch and sound effects
 const toggleSwitch = document.getElementById('theme-toggle');
-const toggleSound = document.getElementById('toggle-sound'); // Retrieves the toggle sound element
-const untoggleSound = document.getElementById('untoggle-sound'); // Retrieves the untoggle sound element
+const toggleSound = document.getElementById('toggle-sound');
+const untoggleSound = document.getElementById('untoggle-sound');
 
-// Set volume for both sounds (adjust this value as needed)
-toggleSound.volume = 0.1; // 10% volume for the toggle sound (dark mode)
-untoggleSound.volume = 0.1; // 10% volume for the untoggle sound (light mode)
+// Set volume for both sounds (10% volume)
+toggleSound.volume = 0.1;
+untoggleSound.volume = 0.1;
 
 // Function to apply dark mode
 function applyDarkMode(isDark) {
-    if (isDark) {
-        document.body.classList.add('dark-mode');
-        toggleSwitch.checked = true; // Check the toggle switch
-    } else {
-        document.body.classList.remove('dark-mode');
-        toggleSwitch.checked = false; // Uncheck the toggle switch
-    }
+    document.body.classList.toggle('dark-mode', isDark);
+    toggleSwitch.checked = isDark;
 }
 
-// Checks if there's a stored theme preference in localStorage
-const savedTheme = localStorage.getItem('theme');
-
-// If no theme preference is saved, default to dark mode
-if (savedTheme === 'dark') {
-    applyDarkMode(true);
-} else if (savedTheme === 'light') {
-    applyDarkMode(false);
-} else {
-    // If no preference in localStorage, default to dark mode
-    applyDarkMode(true); // Set dark mode as default
-    localStorage.setItem('theme', 'dark'); // Save dark mode as the default
-}
-
-// Listens for changes to the toggle switch
-toggleSwitch.addEventListener('change', () => {
-    // Plays the appropriate sound when the toggle button is clicked
-    if (toggleSwitch.checked) {
-        toggleSound.play(); // Play sound when toggling to dark mode
-        localStorage.setItem('theme', 'dark');
+// Initialize theme based on localStorage
+(function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark') {
         applyDarkMode(true);
-    } else {
-        untoggleSound.play(); // Play sound when toggling to light mode
-        localStorage.setItem('theme', 'light');
+    } else if (savedTheme === 'light') {
         applyDarkMode(false);
+    } else {
+        // Default to dark mode if no preference is found
+        applyDarkMode(true);
+        localStorage.setItem('theme', 'dark');
     }
+})();
+
+// Event listener for the toggle switch
+toggleSwitch.addEventListener('change', () => {
+    const isDarkMode = toggleSwitch.checked;
+
+    // Play the appropriate sound based on the toggle state
+    if (isDarkMode) {
+        toggleSound.play(); // Dark mode sound
+        localStorage.setItem('theme', 'dark');
+    } else {
+        untoggleSound.play(); // Light mode sound
+        localStorage.setItem('theme', 'light');
+    }
+
+    applyDarkMode(isDarkMode); // Apply the theme
 });
