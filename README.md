@@ -4,7 +4,7 @@ You've reached the README.md of Arik Karim's personal website! *Thanks for stopp
 
 ## ℹ️ Overview
 
-I made this site for two reasons: (1) to practice/refine my HTML/CSS/JS skills and (2) to streamline my research and writing work into a clean website. I wanted to make a simple, one-page website that gave you everything you needed to know about me——without the hassle of switching pages! There are small notes of nuance, from the hover-color changes for the social media hyperlinks to the rounded toggle button to switch between Light and Dark mode. 
+I made this site for two reasons: (1) to practice/refine my HTML/CSS/JS skills and (2) to streamline my research and writing work into a clean website. I wanted to make a simple, one-page website that gave you everything you needed to know about me—without the hassle of switching pages! There are small notes of nuance, from the hover-color changes for the social media hyperlinks to the rounded toggle button to switch between Light and Dark mode. 
 
 ## 🚀 Navigating the Site's Footer Hyperlinks
 
