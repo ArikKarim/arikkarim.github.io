@@ -1,6 +1,7 @@
 // Get the toggle switch element
 const toggleSwitch = document.getElementById('theme-toggle');
-const toggleSound = document.getElementById('toggle-sound'); // Get the audio element
+const toggleSound = document.getElementById('toggle-sound'); // Get the toggle sound element
+const untoggleSound = document.getElementById('untoggle-sound'); // Get the untoggle sound element
 
 // Function to apply dark mode
 function applyDarkMode(isDark) {
@@ -29,15 +30,13 @@ if (savedTheme === 'dark') {
 
 // Listen for changes to the toggle switch
 toggleSwitch.addEventListener('change', () => {
-    // Play the sound when the toggle button is clicked
-    toggleSound.play();
-
+    // Play the appropriate sound when the toggle button is clicked
     if (toggleSwitch.checked) {
-        // Save the preference to localStorage
+        toggleSound.play(); // Play sound when toggling to dark mode
         localStorage.setItem('theme', 'dark');
         applyDarkMode(true);
     } else {
-        // Save the preference to localStorage
+        untoggleSound.play(); // Play sound when toggling to light mode
         localStorage.setItem('theme', 'light');
         applyDarkMode(false);
     }
