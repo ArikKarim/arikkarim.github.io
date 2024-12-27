@@ -17,9 +17,8 @@ body {
 
 /* Link styling */
 a {
-    color: #ccc; /* Default link color matches the untoggled switch */
+    color: #007BFF; /* Default link color */
     text-decoration: none;
-    transition: color 0.3s; /* Smooth color transition */
 }
 
 a:hover {
@@ -168,10 +167,6 @@ section h2 {
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
-}
-
-body.dark-mode a {
-    color: #007BFF; /* Links match the toggled switch in dark mode */
 }
 
 .footer.dark-mode {
