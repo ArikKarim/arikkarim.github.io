@@ -15,23 +15,18 @@ body {
     padding: 15px;
 }
 
-/* Link styling */
+/* Base link styling */
 a {
-    color: #007BFF; /* Default link color */
+    position: relative;
+    color: #007BFF; /* Default link color retained */
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* Prevent default underline behavior */
 }
 
 /* Sliding underline effect for hyperlinks */
-a {
-    position: relative;
-    color: inherit; /* Retain initial color */
-    text-decoration: none;
-}
-
 a::before {
     content: "";
     position: absolute;
