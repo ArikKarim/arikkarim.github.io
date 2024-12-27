@@ -59,8 +59,7 @@ a:hover::before {
     white-space: nowrap; /* Prevents text from wrapping */
     border-right: 3px solid black; /* Creates the cursor */
     padding-right: 5px; /* Space for cursor */
-    width: 0; /* Start with zero width */
-    transition: width 0.3s ease-in-out; /* Smooth width transition */
+    width: auto; /* The text is fully visible when not hovered */
 }
 
 /* Base styles for typewriter effect */
@@ -82,10 +81,27 @@ a:hover::before {
     }
 }
 
-/* Trigger typewriter effect on hover */
+/* Trigger typewriter effect and blinking cursor on hover */
 .header h1:hover {
     animation: typewriter 4s steps(30) forwards, blink 0.75s step-end infinite; /* Typewriter effect and cursor blinking */
     width: 100%; /* Makes text visible when hovered */
+    padding-right: 5px; /* Ensures space for cursor */
+}
+
+/* Add a delay for the cursor to blink after the animation completes */
+.header h1:after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation: blink 0.75s step-end infinite;
+    visibility: hidden; /* Initially hidden */
+}
+
+/* Make cursor visible after the animation is finished */
+.header h1:hover:after {
+    visibility: visible; /* Cursor becomes visible when hovered */
+    animation: blink 0.75s step-end infinite;
 }
 
 /* Toggle switch styles */
