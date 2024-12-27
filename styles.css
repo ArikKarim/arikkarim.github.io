@@ -32,42 +32,12 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    position: relative;
+    border-bottom: 1px solid #ccc; /* Matches footer border thickness */
 }
 
 .header h1 {
     font-size: 2rem;
     margin: 0;
-}
-
-/* Divider line animation */
-.header::after,
-.footer-line {
-    content: "";
-    display: block;
-    height: 2px; /* Matches footer and header line thickness */
-    background-color: #ccc;
-    width: 0;
-    transition: width 0.5s ease-in-out;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.header::after {
-    position: absolute;
-}
-
-.footer-line {
-    width: 0;
-    transition: width 0.5s ease-in-out;
-    background-color: #ccc;
-    margin: 20px auto; /* Matches header spacing */
-}
-
-.footer:hover .footer-line,
-.header:hover::after {
-    width: 100%;
 }
 
 /* Toggle switch styles */
@@ -131,17 +101,21 @@ section h2 {
 }
 
 /* Footer styles */
+.footer-line {
+    width: 100%;
+    border: none;
+    height: 2px; /* Matches header line thickness */
+    background-color: #ccc;
+    margin: 20px 0; /* Matches header spacing */
+}
+
 .footer {
     text-align: center;
     margin-top: 40px;
     font-size: 0.85rem;
     color: #666;
     padding-top: 20px;
-    position: relative;
-}
-
-.footer:hover .footer-line {
-    width: 100%; /* Reveals footer line when hovered */
+    border-top: 1px solid #ccc; /* Matches header border thickness */
 }
 
 /* Footer link styling */
