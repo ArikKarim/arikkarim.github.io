@@ -111,30 +111,9 @@ section {
     margin: 20px 0;
 }
 
-/* Sliding box highlight effect for headers */
 section h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    position: relative; /* Required for the highlight effect */
-    display: inline-block; /* Ensure spacing remains intact */
-    padding: 5px; /* Retain padding for consistent spacing */
-    overflow: hidden; /* Contain the highlight within the header */
-}
-
-section h2::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0; /* Initially hidden */
-    height: 100%; /* Covers the entire height of the header */
-    background-color: rgba(0, 123, 255, 0.2); /* Light blue highlight */
-    z-index: -1; /* Places the highlight behind the text */
-    transition: width 0.4s ease-in-out; /* Smooth slide effect */
-}
-
-section h2:hover::before {
-    width: 100%; /* Expands to cover the header */
 }
 
 /* Footer styles */
