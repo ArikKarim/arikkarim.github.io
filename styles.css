@@ -25,6 +25,28 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Sliding underline effect for hyperlinks */
+a {
+    position: relative;
+    color: inherit; /* Retain initial color */
+    text-decoration: none;
+}
+
+a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Position underline at the bottom of text */
+    left: 0;
+    width: 0; /* Initially hidden */
+    height: 2px; /* Thickness of underline */
+    background-color: currentColor; /* Matches link color */
+    transition: width 0.3s ease-in-out; /* Smooth sliding effect */
+}
+
+a:hover::before {
+    width: 100%; /* Full underline width on hover */
+}
+
 /* Header styles */
 .header {
     display: flex;
