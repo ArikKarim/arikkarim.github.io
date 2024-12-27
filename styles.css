@@ -54,6 +54,38 @@ a:hover::before {
 .header h1 {
     font-size: 2rem;
     margin: 0;
+    display: inline-block;
+    overflow: hidden; /* Ensures text is hidden initially */
+    white-space: nowrap; /* Prevents text from wrapping */
+    border-right: 3px solid black; /* Creates the cursor */
+    padding-right: 5px; /* Space for cursor */
+    width: 0; /* Start with zero width */
+    transition: width 0.3s ease-in-out; /* Smooth width transition */
+}
+
+/* Base styles for typewriter effect */
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: black;
+    }
+}
+
+/* Trigger typewriter effect on hover */
+.header h1:hover {
+    animation: typewriter 4s steps(30) forwards, blink 0.75s step-end infinite; /* Typewriter effect and cursor blinking */
+    width: 100%; /* Makes text visible when hovered */
 }
 
 /* Toggle switch styles */
