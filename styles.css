@@ -26,7 +26,7 @@ a:hover {
     text-decoration: none; /* Prevent default underline behavior */
 }
 
-/* Sliding underline effect for hyperlinks */
+/* Sliding underline effect for non-footer hyperlinks */
 a::before {
     content: "";
     position: absolute;
@@ -136,14 +136,18 @@ section h2 {
 
 /* Footer link styling */
 .footer a {
-    text-decoration: none;
+    text-decoration: none; /* Remove default underline */
     color: inherit; /* Inherits default text color */
     margin: 0 5px;
-    transition: color 0.3s, text-decoration 0.3s;
+    transition: color 0.3s, font-weight 0.3s; /* Smooth hover effects */
+}
+
+/* Ensure footer links do not use the sliding underline effect */
+.footer a::before {
+    content: none; /* Removes the sliding underline for footer links */
 }
 
 .footer a:hover {
-    text-decoration: underline;
     font-weight: bold; /* Bold effect on hover */
 }
 
