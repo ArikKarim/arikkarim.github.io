@@ -56,6 +56,39 @@ a:hover::before {
     margin: 0;
 }
 
+/* Sliding box highlight effect for headers */
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* Ensures the box effect is contained */
+    padding: 0 5px; /* Optional padding for the text */
+}
+
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -100%; /* Start off-screen on the left */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 123, 255, 0.1); /* Semi-transparent box color */
+    z-index: -1; /* Places the box behind the text */
+    transition: transform 0.4s ease-in-out; /* Smooth transition */
+}
+
+h1:hover::before, h2:hover::before, h3:hover::before, h4:hover::before, h5:hover::before, h6:hover::before {
+    transform: translateX(100%); /* Slide the box into view */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    z-index: 1; /* Ensures the text stays on top */
+    transition: color 0.3s ease-in-out; /* Optional: Text color change */
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    color: #007BFF; /* Change text color on hover */
+}
+
 /* Toggle switch styles */
 .toggle-container {
     position: relative;
