@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>arik karim</title>
+    <!-- Prevent FOUC (Flash of Unstyled Content) -->
+    <script>
+        // Apply theme before any content loads
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Check saved preference first, then system preference
+            if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+            // Add class to indicate theme is initialized
+            document.documentElement.classList.add('theme-initialized');
+        })();
+    </script>
+    <!-- Add a blocking style to hide content until theme is applied -->
+    <style>
+        html:not(.theme-initialized) {
+            visibility: hidden;
+        }
+    </style>
     <link id="favicon" rel="icon" href="akfavicon1.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="favicon.js" defer></script>
-    <script>
-        // Apply saved theme immediately to prevent light mode flash
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -71,5 +85,14 @@
     <audio id="toggle-sound" src="toggle-sound.mp3"></audio>
     <audio id="untoggle-sound" src="untoggle-sound.mp3"></audio>
     <script src="sounds.js"></script>
+    <script>
+        // Remove visibility blocker after everything is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Small timeout to ensure styles are applied
+            setTimeout(function() {
+                document.documentElement.classList.add('content-visible');
+            }, 50);
+        });
+    </script>
 </body>
 </html>
