@@ -127,29 +127,19 @@ a:not(.button):hover::before {
 }
 
 /* Header styles */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border-color);
+/* Header styles */
+.header h1 a {
+    color: inherit; /* Inherits the text color from the parent */
+    text-decoration: none; /* Removes underline */
 }
-
-.header h1 {
-    text-decoration: none;
-    color: inherit;
-    cursor: default;
-    font-size: 2rem;
-    margin: 0;
-}
-
 
 .header h1 a:hover {
     text-decoration: none;
+    color: inherit;
 }
 
 .header h1 a::before {
-    display: none;
+    display: none; /* Removes the sliding underline effect */
 }
 
 /* Toggle switch styles */
