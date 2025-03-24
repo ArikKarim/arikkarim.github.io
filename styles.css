@@ -127,7 +127,14 @@ a:not(.button):hover::before {
 }
 
 /* Header styles */
-/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .header h1 a {
     color: inherit; /* Inherits the text color from the parent */
     text-decoration: none; /* Removes underline */
