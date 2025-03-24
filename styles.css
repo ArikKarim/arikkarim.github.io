@@ -100,18 +100,18 @@ body {
 }
 
 /* Base link styling */
-a {
+a:not(.button) {
     position: relative;
     color: var(--link-color);
     text-decoration: none;
 }
 
-a:hover {
+a:not(.button):hover {
     text-decoration: none; /* Prevent default underline behavior */
 }
 
-/* Sliding underline effect for non-footer hyperlinks */
-a::before {
+/* Sliding underline effect for non-button hyperlinks */
+a:not(.button)::before {
     content: "";
     position: absolute;
     bottom: 0; /* Position underline at the bottom of text */
@@ -122,7 +122,7 @@ a::before {
     transition: width 0.3s ease-in-out; /* Smooth sliding effect */
 }
 
-a:hover::before {
+a:not(.button):hover::before {
     width: 100%; /* Full underline width on hover */
 }
 
