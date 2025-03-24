@@ -31,7 +31,6 @@
 
     <script>
         (function() {
-            // Get theme preference - check localStorage first, then system preference
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             
@@ -39,13 +38,12 @@
                 document.documentElement.classList.add('dark-mode');
             }
             
-            // Allow very brief timeout for the browser to apply the dark mode class
-            // before making content visible
             setTimeout(function() {
                 document.documentElement.classList.add('theme-ready');
             }, 10);
         })();
     </script>
+    
     <link id="favicon" rel="icon" href="akfavicon1.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -79,6 +77,10 @@
                 <li>page @ <a href="https://flsenate.gov/" target="_blank">the florida senate</a></li>
                 <li>intern @ <a href="https://columbia.edu/" target="_blank">columbia</a></li>
             </ul>
+        <section id="research">
+            <h2>research</h2>
+            // insert research button here
+        </section>
         <section id="reads">
             <h2>reads</h2>
             <ul>
