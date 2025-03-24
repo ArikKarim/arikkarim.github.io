@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arik karim - research</title>
+        <style>
+        html {
+            visibility: hidden;
+        }
+        html.theme-ready {
+            visibility: visible;
+        }
+        
+        html {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+        }
+        
+        html.dark-mode {
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+            
+            setTimeout(function() {
+                document.documentElement.classList.add('theme-ready');
+            }, 10);
+        })();
+    </script>
+    
+    <link id="favicon" rel="icon" href="akfavicon1.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="favicon.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>arik karim</h1>
+            <div class="toggle-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+        
+        <section id="research-overview">
+            <h2>research</h2>
+            <p>my research primarily focuses on the intersection of technology, policy, and international affairs. below are some of my key research projects and publications:</p>
+        </section>
+
+        <section id="current-projects">
+            <h2>current projects</h2>
+            <ul>
+                <li>
+                    <strong>disinformation dynamics in global health communication</strong>
+                    <p>investigating strategies to combat misinformation in international medical crisis response @ imcra</p>
+                </li>
+                <li>
+                    <strong>youth participation in policy development</strong>
+                    <p>exploring mechanisms to integrate youth perspectives in governance through the spring group</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="publications">
+            <h2>publications</h2>
+            <ul>
+                <li>
+                    <a href="#" class="button">
+                        research paper (forthcoming)
+                        <svg class="button-arrow" viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="conference-presentations">
+            <h2>conference presentations</h2>
+            <ul>
+                <li>upcoming conference on emerging technologies and policy (2025)</li>
+            </ul>
+        </section>
+
+        <a href="index.html" class="button">
+            back to home
+            <svg class="button-arrow" viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </a>
+
+        <footer class="footer">
+            <p>
+                <a href="mailto:arik.karim@gwu.edu" target="_blank" class="email">email</a> • 
+                <a href="https://github.com/ArikKarim" target="_blank" class="github">github</a> • 
+                <a href="https://scholar.google.com/citations?user=ANVlVyoAAAAJ&hl=en" target="_blank" class="scholar">google scholar</a> • 
+                <a href="https://instagram.com/arikkarim/" target="_blank" class="instagram">instagram</a> • 
+                <a href="https://linkedin.com/in/arikkarim/" target="_blank" class="linkedin">linkedin</a> • 
+                <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5793939" target="_blank" class="ssrn">ssrn</a> • 
+                <a href="https://arikkarim.substack.com/" target="_blank" class="substack">substack</a> • 
+                <a href="https://x.com/arikulkarim" target="_blank" class="twitter">twitter/x</a>
+            </p>
+            <p>© 2025 arik karim</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <audio id="toggle-sound" src="toggle-sound.mp3"></audio>
+    <audio id="untoggle-sound" src="untoggle-sound.mp3"></audio>
+    <script src="sounds.js"></script>
+</body>
+</html>
