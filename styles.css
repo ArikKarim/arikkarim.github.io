@@ -1,37 +1,39 @@
 /* Theme visibility control */
-html:not(.theme-initialized) {
+html {
     visibility: hidden;
 }
 
-html.theme-initialized {
+html.theme-ready {
     visibility: visible;
-    transition: background-color 0.3s ease;
 }
 
-/* Fix for dark mode - Change this section */
-/* Dark mode styles */
-.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+/* Base theme variables - Define both themes immediately */
+:root {
+    /* Light theme variables */
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #007BFF;
+    --footer-text-color: #666666;
+    --border-color: #cccccc;
 }
 
-.dark-mode .footer {
-    color: #aaaaaa; /* Dimmed footer text in dark mode */
+/* Dark theme variables - Applied when .dark-mode class is present */
+html.dark-mode {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #3391ff;
+    --footer-text-color: #aaaaaa;
+    --border-color: #444444;
 }
 
-.dark-mode a {
-    color: #3391ff; /* Slightly lighter blue for better contrast in dark mode */
-}
-
-
-/* Base styles */
+/* Base styles using CSS variables */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #000;
-    background-color: #fff;
+    background-color: var(--background-color);
+    color: var(--text-color);
     transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
 }
 
@@ -44,7 +46,7 @@ body {
 /* Base link styling */
 a {
     position: relative;
-    color: #007BFF; /* Default link color retained */
+    color: var(--link-color);
     text-decoration: none;
 }
 
@@ -74,7 +76,7 @@ a:hover::before {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #ccc; /* Matches footer border thickness */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .header h1 {
@@ -125,7 +127,7 @@ a:hover::before {
 }
 
 input:checked + .slider {
-    background-color: #007BFF; /* Toggle ON color */
+    background-color: var(--link-color); /* Toggle ON color matches theme */
 }
 
 input:checked + .slider:before {
@@ -146,50 +148,50 @@ section h2 {
 .footer-line {
     width: 100%;
     border: none;
-    height: 2px; /* Matches header line thickness */
-    background-color: #ccc;
-    margin: 20px 0; /* Matches header spacing */
+    height: 2px;
+    background-color: var(--border-color);
+    margin: 20px 0;
 }
 
 .footer {
     text-align: center;
     margin-top: 40px;
     font-size: 0.85rem;
-    color: #666;
+    color: var(--footer-text-color);
     padding-top: 20px;
-    border-top: 1px solid #ccc; /* Matches header border thickness */
+    border-top: 1px solid var(--border-color);
 }
 
 /* Footer link styling */
 .footer a {
     position: relative;
-    text-decoration: none; /* Remove default underline */
-    color: inherit; /* Inherits default text color */
+    text-decoration: none;
+    color: inherit;
     margin: 0 5px;
-    transition: color 0.3s; /* Smooth hover color effect */
+    transition: color 0.3s;
 }
 
 /* Sliding underline effect for footer links */
 .footer a::before {
     content: "";
     position: absolute;
-    bottom: 0; /* Position underline at the bottom of text */
+    bottom: 0;
     left: 0;
-    width: 0; /* Initially hidden */
-    height: 1px; /* Thickness of underline */
-    background-color: currentColor; /* Matches link color */
-    transition: width 0.3s ease-in-out; /* Smooth sliding effect */
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease-in-out;
 }
 
 .footer a:hover::before {
-    width: 100%; /* Full underline width on hover */
+    width: 100%;
 }
 
 .footer a:hover {
-    font-weight: bold; /* Bold effect on hover */
+    font-weight: bold;
 }
 
-/* Footer link hover effects with unique colors */
+/* Footer link hover effects with unique colors - unchanged */
 .footer .email:hover {
     color: #d34b3d; /* Email Red */
 }
@@ -222,12 +224,7 @@ section h2 {
     color: #4285F4; /* Google Scholar Blue */
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-.footer.dark-mode {
-    color: #aaaaaa; /* Dimmed footer text in dark mode */
+/* Dark mode overrides for specific elements - only what can't be handled by variables */
+html.dark-mode .footer .github:hover {
+    color: #f0f0f0; /* Lighter color for dark mode */
 }
