@@ -27,17 +27,6 @@
             color: var(--text-color);
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        /* New styles for home link */
-        .home-link {
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-        }
-
-        .home-link:hover {
-            text-decoration: none;
-        }
     </style>
 
     <script>
@@ -46,46 +35,56 @@
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             
-            if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
-                document.documentElement.classList.add('dark-mode');
+            // Function to apply theme
+            function applyTheme(theme) {
+                const html = document.documentElement;
+                const themeToggle = document.getElementById('theme-toggle');
+                
+                if (theme === 'dark' || (theme === null && prefersDark)) {
+                    html.classList.add('dark-mode');
+                    if (themeToggle) themeToggle.checked = true;
+                } else {
+                    html.classList.remove('dark-mode');
+                    if (themeToggle) themeToggle.checked = false;
+                }
             }
+            
+            // Initial theme application
+            applyTheme(savedTheme);
             
             // Function to toggle theme
             function toggleTheme() {
-                document.documentElement.classList.toggle('dark-mode');
-                const currentTheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+                const html = document.documentElement;
+                html.classList.toggle('dark-mode');
+                
+                const currentTheme = html.classList.contains('dark-mode') ? 'dark' : 'light';
                 localStorage.setItem('theme', currentTheme);
+                
+                // Dispatch storage event to sync across pages
+                window.dispatchEvent(new Event('storage'));
             }
 
             // Add event listener for theme toggle
             function initThemeToggle() {
                 const themeToggle = document.getElementById('theme-toggle');
                 if (themeToggle) {
-                    // Set initial checkbox state based on current theme
-                    themeToggle.checked = document.documentElement.classList.contains('dark-mode');
-                    
                     themeToggle.addEventListener('change', toggleTheme);
                 }
             }
+
+            // Sync theme across pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'theme' || e.type === 'storage') {
+                    const currentTheme = localStorage.getItem('theme');
+                    applyTheme(currentTheme);
+                }
+            });
 
             // Ensure theme is set before page becomes visible
             setTimeout(function() {
                 document.documentElement.classList.add('theme-ready');
                 initThemeToggle();
             }, 10);
-
-            // Sync theme across pages
-            window.addEventListener('storage', function(e) {
-                if (e.key === 'theme') {
-                    if (e.newValue === 'dark') {
-                        document.documentElement.classList.add('dark-mode');
-                        document.getElementById('theme-toggle').checked = true;
-                    } else {
-                        document.documentElement.classList.remove('dark-mode');
-                        document.getElementById('theme-toggle').checked = false;
-                    }
-                }
-            });
         })();
     </script>
     
@@ -94,7 +93,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="favicon.js" defer></script>
 </head>
-     
+    
 <body>
     <div class="container">
         <header class="header">
