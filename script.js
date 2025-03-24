@@ -7,12 +7,12 @@
             return localStorage.getItem('theme') || 
                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         },
-
+        
         // Apply theme
         applyTheme: function(theme) {
             const html = document.documentElement;
             const themeToggle = document.getElementById('theme-toggle');
-
+            
             if (theme === 'dark') {
                 html.classList.add('dark-mode');
                 if (themeToggle) themeToggle.checked = true;
@@ -21,42 +21,49 @@
                 if (themeToggle) themeToggle.checked = false;
             }
         },
-
+        
         // Toggle theme
         toggleTheme: function() {
             const html = document.documentElement;
-            html.classList.toggle('dark-mode');
+            const currentTheme = this.getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
-            const newTheme = html.classList.contains('dark-mode') ? 'dark' : 'light';
+            // Set theme in localStorage
             localStorage.setItem('theme', newTheme);
             
-            // Dispatch event to sync across pages
-            window.dispatchEvent(new Event('themeChanged'));
+            // Broadcast theme change across all pages/tabs
+            localStorage.setItem('theme-sync', JSON.stringify({
+                theme: newTheme,
+                timestamp: Date.now()
+            }));
+            
+            // Apply theme locally
+            this.applyTheme(newTheme);
         },
-
-        // Initialize theme toggle listeners
+        
+        // Initialize theme management
         init: function() {
-            // Apply saved or system theme
+            // Apply saved or system theme initially
             this.applyTheme(this.getCurrentTheme());
-
+            
             // Add toggle event listener
             const themeToggle = document.getElementById('theme-toggle');
             if (themeToggle) {
                 themeToggle.addEventListener('change', () => this.toggleTheme());
             }
-
+            
             // Listen for theme changes across tabs/windows
             window.addEventListener('storage', (e) => {
-                if (e.key === 'theme') {
-                    this.applyTheme(e.newValue);
+                if (e.key === 'theme-sync') {
+                    try {
+                        const data = JSON.parse(e.newValue);
+                        this.applyTheme(data.theme);
+                    } catch (error) {
+                        console.error('Theme sync error:', error);
+                    }
                 }
             });
-
-            // Cross-page theme sync
-            window.addEventListener('themeChanged', () => {
-                this.applyTheme(this.getCurrentTheme());
-            });
-
+            
             // Handle system theme preference changes
             window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
                 if (!localStorage.getItem('theme')) {
@@ -65,14 +72,14 @@
             });
         }
     };
-
+    
     // Ensure DOM is loaded before initializing
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => themeManager.init());
     } else {
         themeManager.init();
     }
-
+    
     // Expose for potential manual control
     window.themeManager = themeManager;
 })();
@@ -82,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const toggleSound = document.getElementById('toggle-sound');
     const untoggleSound = document.getElementById('untoggle-sound');
-
+    
     if (themeToggle && toggleSound && untoggleSound) {
         themeToggle.addEventListener('change', (e) => {
             if (e.target.checked) {
