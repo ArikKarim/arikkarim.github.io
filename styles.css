@@ -46,26 +46,26 @@ body {
 .button {
     font-family: 'Inter', sans-serif;
     display: inline-block;
-    padding: 6px 12px;  /* Reduced padding */
+    padding: 8px 15px;
     text-decoration: none;
     border: 2px solid var(--text-color);
-    border-radius: 20px;  /* More rounded edges */
+    border-radius: 8px;
     color: var(--text-color);
     background-color: transparent;
     transition: all 0.3s ease;
     cursor: pointer;
-    font-size: 0.9rem;  /* Slightly smaller font */
+    font-size: 1rem;
     font-weight: 400;
     align-items: center;
-    gap: 6px;  /* Reduced gap */
-    width: fit-content;
-    display: inline-flex;
+    gap: 8px;
+    width: fit-content;  /* Ensures button only spans necessary width */
+    display: inline-flex;  /* Changed from flex to inline-flex */
 }
 
 .button:hover {
     color: var(--background-color);
     background-color: var(--text-color);
-    border-color: var(--text-color);
+    border-color: var(--text-color);  /* Ensures consistent border color on hover */
 }
 
 /* Remove any potential pseudo-element lines */
@@ -75,8 +75,8 @@ body {
 }
 
 .button-arrow {
-    width: 0.8em;  /* Slightly smaller arrow */
-    height: 0.8em;
+    width: 1em;
+    height: 1em;
     stroke: currentColor;
     stroke-width: 2;
     fill: none;
