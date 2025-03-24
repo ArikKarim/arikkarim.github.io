@@ -31,6 +31,7 @@
 
     <script>
         (function() {
+            // Enhanced theme persistence logic
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             
@@ -38,9 +39,42 @@
                 document.documentElement.classList.add('dark-mode');
             }
             
+            // Function to toggle theme
+            function toggleTheme() {
+                document.documentElement.classList.toggle('dark-mode');
+                const currentTheme = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+                localStorage.setItem('theme', currentTheme);
+            }
+
+            // Add event listener for theme toggle
+            function initThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    // Set initial checkbox state based on current theme
+                    themeToggle.checked = document.documentElement.classList.contains('dark-mode');
+                    
+                    themeToggle.addEventListener('change', toggleTheme);
+                }
+            }
+
+            // Ensure theme is set before page becomes visible
             setTimeout(function() {
                 document.documentElement.classList.add('theme-ready');
+                initThemeToggle();
             }, 10);
+
+            // Sync theme across pages
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'theme') {
+                    if (e.newValue === 'dark') {
+                        document.documentElement.classList.add('dark-mode');
+                        document.getElementById('theme-toggle').checked = true;
+                    } else {
+                        document.documentElement.classList.remove('dark-mode');
+                        document.getElementById('theme-toggle').checked = false;
+                    }
+                }
+            });
         })();
     </script>
     
@@ -53,7 +87,7 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>arik karim</h1>
+            <h1><a href="index.html" class="home-link">arik karim</a></h1>
             <div class="toggle-container">
                 <label class="toggle-switch">
                     <input type="checkbox" id="theme-toggle">
@@ -123,7 +157,5 @@
     <audio id="toggle-sound" src="toggle-sound.mp3"></audio>
     <audio id="untoggle-sound" src="untoggle-sound.mp3"></audio>
     <script src="sounds.js"></script>
-    
 </body>
-    
 </html>
