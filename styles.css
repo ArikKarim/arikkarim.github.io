@@ -140,6 +140,17 @@ a:not(.button):hover::before {
     margin: 0;
 }
 
+/* Home button styles */
+.home-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.home-link:hover {
+    text-decoration: none;
+}
+
 /* Toggle switch styles */
 .toggle-container {
     position: relative;
