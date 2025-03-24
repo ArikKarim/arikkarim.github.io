@@ -31,16 +31,18 @@
 
     <script>
         (function() {
-            // Enhanced theme persistence logic
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            // Enhanced theme synchronization logic
+            function getCurrentTheme() {
+                return localStorage.getItem('theme') || 
+                       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            }
             
             // Function to apply theme
             function applyTheme(theme) {
                 const html = document.documentElement;
                 const themeToggle = document.getElementById('theme-toggle');
                 
-                if (theme === 'dark' || (theme === null && prefersDark)) {
+                if (theme === 'dark') {
                     html.classList.add('dark-mode');
                     if (themeToggle) themeToggle.checked = true;
                 } else {
@@ -49,21 +51,28 @@
                 }
             }
             
-            // Initial theme application
-            applyTheme(savedTheme);
-            
             // Function to toggle theme
             function toggleTheme() {
                 const html = document.documentElement;
-                html.classList.toggle('dark-mode');
+                const currentTheme = getCurrentTheme();
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 
-                const currentTheme = html.classList.contains('dark-mode') ? 'dark' : 'light';
-                localStorage.setItem('theme', currentTheme);
+                // Set theme in localStorage
+                localStorage.setItem('theme', newTheme);
                 
-                // Dispatch storage event to sync across pages
-                window.dispatchEvent(new Event('storage'));
+                // Broadcast theme change across all pages/tabs
+                localStorage.setItem('theme-sync', JSON.stringify({
+                    theme: newTheme,
+                    timestamp: Date.now()
+                }));
+                
+                // Apply theme locally
+                applyTheme(newTheme);
             }
 
+            // Initial theme application
+            applyTheme(getCurrentTheme());
+            
             // Add event listener for theme toggle
             function initThemeToggle() {
                 const themeToggle = document.getElementById('theme-toggle');
@@ -74,9 +83,13 @@
 
             // Sync theme across pages
             window.addEventListener('storage', function(e) {
-                if (e.key === 'theme' || e.type === 'storage') {
-                    const currentTheme = localStorage.getItem('theme');
-                    applyTheme(currentTheme);
+                if (e.key === 'theme-sync') {
+                    try {
+                        const data = JSON.parse(e.newValue);
+                        applyTheme(data.theme);
+                    } catch (error) {
+                        console.error('Theme sync error:', error);
+                    }
                 }
             });
 
