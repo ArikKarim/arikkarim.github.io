@@ -1,32 +1,47 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleSwitch = document.querySelector("#theme-toggle");
-    const favicon = document.getElementById("favicon");
-
-    // Function to update the favicon
-    function updateFavicon(isDarkMode) {
-        favicon.href = isDarkMode ? "akfavicon2.ico" : "akfavicon1.ico";
-    }
-
-    // Apply saved theme from localStorage and update favicon
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-        updateFavicon(true);  // Set dark mode favicon
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const faviconLink = document.getElementById('favicon');
+    
+    // Set initial favicon based on current theme
+    if (document.documentElement.classList.contains('dark-mode')) {
+        faviconLink.href = 'akfavicon2.ico'; // Dark mode favicon
     } else {
-        document.documentElement.classList.remove('dark-mode');
-        updateFavicon(false); // Set light mode favicon
+        faviconLink.href = 'akfavicon1.ico'; // Light mode favicon
     }
-
-    // Listen for toggle changes and update theme and favicon
-    toggleSwitch.addEventListener("change", function () {
-        if (toggleSwitch.checked) {
+    
+    // Update checkbox state based on current theme
+    themeToggle.checked = document.documentElement.classList.contains('dark-mode');
+    
+    // Listen for theme toggle changes
+    themeToggle.addEventListener('change', function() {
+        if (this.checked) {
+            // Dark mode
             document.documentElement.classList.add('dark-mode');
-            updateFavicon(true);
-            localStorage.setItem('theme', 'dark'); // Save theme preference
+            faviconLink.href = 'akfavicon2.ico';
+            localStorage.setItem('theme', 'dark');
         } else {
+            // Light mode
             document.documentElement.classList.remove('dark-mode');
-            updateFavicon(false);
-            localStorage.setItem('theme', 'light'); // Save theme preference
+            faviconLink.href = 'akfavicon1.ico';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+    
+    // Listen for system preference changes
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addEventListener('change', function(e) {
+        // Only apply if user hasn't set a preference
+        if (!localStorage.getItem('theme')) {
+            const newDarkMode = e.matches;
+            themeToggle.checked = newDarkMode;
+            
+            if (newDarkMode) {
+                document.documentElement.classList.add('dark-mode');
+                faviconLink.href = 'akfavicon2.ico';
+            } else {
+                document.documentElement.classList.remove('dark-mode');
+                faviconLink.href = 'akfavicon1.ico';
+            }
         }
     });
 });
