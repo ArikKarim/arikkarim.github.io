@@ -47,7 +47,7 @@ body {
 .button {
     font-family: 'Inter', sans-serif;
     display: inline-block;
-    padding: 8px 15px;  /* Reduced padding to make button smaller */
+    padding: 8px 15px;
     text-decoration: none;
     border: 2px solid var(--text-color);
     border-radius: 8px;
@@ -56,15 +56,23 @@ body {
     transition: all 0.3s ease;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: 400;  /* Changed from 600 (bold) to 400 (normal) */
-    display: flex;
+    font-weight: 400;
     align-items: center;
     gap: 8px;
+    width: fit-content;  /* Ensures button only spans necessary width */
+    display: inline-flex;  /* Changed from flex to inline-flex */
 }
 
 .button:hover {
     color: var(--background-color);
     background-color: var(--text-color);
+    border-color: var(--text-color);  /* Ensures consistent border color on hover */
+}
+
+/* Remove any potential pseudo-element lines */
+.button:hover::before,
+.button:hover::after {
+    content: none;
 }
 
 .button-arrow {
