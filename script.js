@@ -1,5 +1,14 @@
-/* Theme Management Script */
+/* Theme Management and Sound Effects Script */
 (function() {
+    // Get DOM elements
+    const themeToggle = document.getElementById('theme-toggle');
+    const toggleSound = document.getElementById('toggle-sound');
+    const untoggleSound = document.getElementById('untoggle-sound');
+    
+    // Set sound volumes
+    if (toggleSound) toggleSound.volume = 0.1;
+    if (untoggleSound) untoggleSound.volume = 0.1;
+
     // Centralized theme management
     const themeManager = {
         // Get the current theme
@@ -11,7 +20,6 @@
         // Apply theme
         applyTheme: function(theme) {
             const html = document.documentElement;
-            const themeToggle = document.getElementById('theme-toggle');
             
             if (theme === 'dark') {
                 html.classList.add('dark-mode');
@@ -24,7 +32,6 @@
         
         // Toggle theme
         toggleTheme: function() {
-            const html = document.documentElement;
             const currentTheme = this.getCurrentTheme();
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
@@ -37,6 +44,13 @@
                 timestamp: Date.now()
             }));
             
+            // Play appropriate sound
+            if (newTheme === 'dark' && toggleSound) {
+                toggleSound.play();
+            } else if (newTheme === 'light' && untoggleSound) {
+                untoggleSound.play();
+            }
+            
             // Apply theme locally
             this.applyTheme(newTheme);
         },
@@ -47,9 +61,13 @@
             this.applyTheme(this.getCurrentTheme());
             
             // Add toggle event listener
-            const themeToggle = document.getElementById('theme-toggle');
             if (themeToggle) {
-                themeToggle.addEventListener('change', () => this.toggleTheme());
+                // Remove any existing listeners first
+                const oldToggle = themeToggle.cloneNode(true);
+                themeToggle.parentNode.replaceChild(oldToggle, themeToggle);
+                
+                // Add single event listener
+                oldToggle.addEventListener('change', () => this.toggleTheme());
             }
             
             // Listen for theme changes across tabs/windows
@@ -83,20 +101,3 @@
     // Expose for potential manual control
     window.themeManager = themeManager;
 })();
-
-// Optional: Sound effects for theme toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    const toggleSound = document.getElementById('toggle-sound');
-    const untoggleSound = document.getElementById('untoggle-sound');
-    
-    if (themeToggle && toggleSound && untoggleSound) {
-        themeToggle.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                toggleSound.play();
-            } else {
-                untoggleSound.play();
-            }
-        });
-    }
-});
