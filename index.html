@@ -50,36 +50,9 @@
                     if (themeToggle) themeToggle.checked = false;
                 }
             }
-            
-            // Function to toggle theme
-            function toggleTheme() {
-                const html = document.documentElement;
-                const currentTheme = getCurrentTheme();
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                // Set theme in localStorage
-                localStorage.setItem('theme', newTheme);
-                
-                // Broadcast theme change across all pages/tabs
-                localStorage.setItem('theme-sync', JSON.stringify({
-                    theme: newTheme,
-                    timestamp: Date.now()
-                }));
-                
-                // Apply theme locally
-                applyTheme(newTheme);
-            }
 
             // Initial theme application
             applyTheme(getCurrentTheme());
-            
-            // Add event listener for theme toggle
-            function initThemeToggle() {
-                const themeToggle = document.getElementById('theme-toggle');
-                if (themeToggle) {
-                    themeToggle.addEventListener('change', toggleTheme);
-                }
-            }
 
             // Sync theme across pages
             window.addEventListener('storage', function(e) {
@@ -96,7 +69,6 @@
             // Ensure theme is set before page becomes visible
             setTimeout(function() {
                 document.documentElement.classList.add('theme-ready');
-                initThemeToggle();
             }, 10);
         })();
     </script>
@@ -179,6 +151,5 @@
     <script src="script.js"></script>
     <audio id="toggle-sound" src="toggle-sound.mp3"></audio>
     <audio id="untoggle-sound" src="untoggle-sound.mp3"></audio>
-    <script src="sounds.js"></script>
 </body>
 </html>
