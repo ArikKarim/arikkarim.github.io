@@ -1,209 +1,112 @@
-/* Theme Management and Sound Effects Script */
-(function() {
-    // Detect touch-based devices
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const toggleSound = document.getElementById('toggle-sound');
+    const untoggleSound = document.getElementById('untoggle-sound');
 
-    // Get DOM elements with fallback and error handling
-    function safeGetElement(id) {
-        const element = document.getElementById(id);
-        if (!element) {
-            console.warn(`Element with id '${id}' not found`);
-        }
-        return element;
+    // Ensure all elements exist before proceeding
+    if (!themeToggle) {
+        console.error('Theme toggle element not found');
+        return;
     }
 
-    const themeToggle = safeGetElement('theme-toggle');
-    const toggleSound = safeGetElement('toggle-sound');
-    const untoggleSound = safeGetElement('untoggle-sound');
-    
-    // Enhanced debugging function
-    function logAudioStatus() {
-        const browserInfo = {
-            userAgent: navigator.userAgent,
-            platform: navigator.platform,
-            isTouchDevice: isTouchDevice
-        };
-        console.log('Browser and Device Info:', browserInfo);
-
+    // Debugging function
+    function logElementStatus() {
         console.log('Theme Toggle:', themeToggle);
         console.log('Toggle Sound:', toggleSound);
         console.log('Untoggle Sound:', untoggleSound);
+    }
+
+    // Get current theme
+    function getCurrentTheme() {
+        return localStorage.getItem('theme') || 
+               (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+
+    // Apply theme
+    function applyTheme(theme) {
+        const html = document.documentElement;
         
-        // Safely log audio details
-        ['toggleSound', 'untoggleSound'].forEach(soundType => {
-            const sound = soundType === 'toggleSound' ? toggleSound : untoggleSound;
-            if (sound) {
-                console.log(`${soundType} Details:`, {
-                    src: sound.src,
-                    readyState: sound.readyState,
-                    canPlay: sound.canPlayType('audio/mpeg') !== '',
-                    duration: sound.duration
-                });
+        if (theme === 'dark') {
+            html.classList.add('dark-mode');
+            themeToggle.checked = true;
+        } else {
+            html.classList.remove('dark-mode');
+            themeToggle.checked = false;
+        }
+
+        // Update localStorage
+        localStorage.setItem('theme', theme);
+    }
+
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = getCurrentTheme();
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Play sound
+        try {
+            if (newTheme === 'dark' && toggleSound) {
+                toggleSound.currentTime = 0;
+                toggleSound.play().catch(error => console.error('Toggle sound error:', error));
+            } else if (newTheme === 'light' && untoggleSound) {
+                untoggleSound.currentTime = 0;
+                untoggleSound.play().catch(error => console.error('Untoggle sound error:', error));
             }
+        } catch (error) {
+            console.error('Sound play error:', error);
+        }
+
+        // Apply new theme
+        applyTheme(newTheme);
+
+        // Sync across tabs
+        localStorage.setItem('theme-sync', JSON.stringify({
+            theme: newTheme,
+            timestamp: Date.now()
+        }));
+    }
+
+    // Event listeners with multiple methods
+    function setupEventListeners() {
+        // Checkbox change
+        themeToggle.addEventListener('change', function(e) {
+            console.log('Checkbox changed');
+            toggleTheme();
+        });
+
+        // Label click (fallback)
+        const toggleLabel = themeToggle.closest('label');
+        if (toggleLabel) {
+            toggleLabel.addEventListener('click', function(e) {
+                console.log('Label clicked');
+                // Prevent double-firing
+                e.preventDefault();
+                toggleTheme();
+            });
+        }
+
+        // Touch support
+        themeToggle.addEventListener('touchstart', function(e) {
+            console.log('Touch started');
+            e.preventDefault();
+            toggleTheme();
         });
     }
-    
-    // Cross-browser sound setup with fallbacks
-    function setupSound(audioElement) {
-        if (!audioElement) return;
 
-        try {
-            // Lower volume for mobile devices
-            audioElement.volume = isTouchDevice ? 0.05 : 0.1;
-            
-            // Preload with fallback
-            audioElement.preload = 'metadata';
-            
-            // Add error handling
-            audioElement.addEventListener('error', (e) => {
-                console.error('Audio error:', e);
-            });
-        } catch (error) {
-            console.error('Sound setup error:', error);
-        }
-    }
-
-    // Setup sounds
-    setupSound(toggleSound);
-    setupSound(untoggleSound);
-    
-    // Centralized theme management with improved cross-platform support
-    const themeManager = {
-        getCurrentTheme: function() {
-            // Prioritize localStorage, then system preference
-            return localStorage.getItem('theme') || 
-                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        },
-        
-        applyTheme: function(theme) {
-            const html = document.documentElement;
-            
-            if (theme === 'dark') {
-                html.classList.add('dark-mode');
-                html.classList.remove('light-mode');
-                if (themeToggle) themeToggle.checked = true;
-            } else {
-                html.classList.add('light-mode');
-                html.classList.remove('dark-mode');
-                if (themeToggle) themeToggle.checked = false;
+    // Cross-tab sync
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'theme-sync') {
+            try {
+                const data = JSON.parse(e.newValue);
+                applyTheme(data.theme);
+            } catch (error) {
+                console.error('Theme sync error:', error);
             }
-
-            // Trigger reflow for smooth transitions
-            html.style.colorScheme = theme;
-        },
-        
-        toggleTheme: function() {
-            const currentTheme = this.getCurrentTheme();
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            // Set theme in localStorage
-            localStorage.setItem('theme', newTheme);
-            
-            // Cross-tab and cross-window synchronization
-            localStorage.setItem('theme-sync', JSON.stringify({
-                theme: newTheme,
-                timestamp: Date.now(),
-                source: window.location.href
-            }));
-            
-            // Play sound with enhanced cross-platform error handling
-            const playSound = (soundElement) => {
-                if (!soundElement) return;
-
-                // Reset playback
-                soundElement.currentTime = 0;
-                
-                // Use promise-based play with multiple fallbacks
-                const playPromise = soundElement.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise
-                        .catch(error => {
-                            // Common reasons for play failure
-                            if (error.name === 'NotAllowedError') {
-                                console.warn('Audio autoplay blocked');
-                            } else if (error.name === 'NotSupportedError') {
-                                console.warn('Audio format not supported');
-                            } else {
-                                console.error('Sound play error:', error);
-                            }
-                        });
-                }
-            };
-
-            // Play appropriate sound
-            newTheme === 'dark' 
-                ? playSound(toggleSound) 
-                : playSound(untoggleSound);
-            
-            // Apply theme locally
-            this.applyTheme(newTheme);
-        },
-        
-        init: function() {
-            // Apply saved or system theme initially
-            this.applyTheme(this.getCurrentTheme());
-            
-            // Enhanced event binding with touch and click support
-            if (themeToggle) {
-                // Touch event for mobile devices
-                if (isTouchDevice) {
-                    themeToggle.addEventListener('touchstart', (e) => {
-                        e.preventDefault(); // Prevent double-firing
-                        this.toggleTheme();
-                    });
-                }
-
-                // Click event for desktop
-                themeToggle.addEventListener('click', (e) => {
-                    this.toggleTheme();
-                });
-
-                // Change event as a fallback
-                themeToggle.addEventListener('change', (e) => {
-                    this.toggleTheme();
-                });
-            }
-            
-            // Cross-window theme synchronization
-            window.addEventListener('storage', (e) => {
-                if (e.key === 'theme-sync') {
-                    try {
-                        const data = JSON.parse(e.newValue);
-                        // Prevent recursive updates
-                        if (data.source !== window.location.href) {
-                            this.applyTheme(data.theme);
-                        }
-                    } catch (error) {
-                        console.error('Theme sync error:', error);
-                    }
-                }
-            });
         }
-    };
-    
-    // Robust initialization with multiple loading state checks
-    const initializeThemeManager = () => {
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                themeManager.init();
-                logAudioStatus();
-            });
-        } else if (document.readyState === 'interactive' || document.readyState === 'complete') {
-            themeManager.init();
-            logAudioStatus();
-        } else {
-            // Fallback for any unexpected states
-            window.addEventListener('load', () => {
-                themeManager.init();
-                logAudioStatus();
-            });
-        }
-    };
+    });
 
-    // Start initialization
-    initializeThemeManager();
-    
-    // Expose for potential manual control
-    window.themeManager = themeManager;
-})();
+    // Initial setup
+    applyTheme(getCurrentTheme());
+    setupEventListeners();
+    logElementStatus();
+});
