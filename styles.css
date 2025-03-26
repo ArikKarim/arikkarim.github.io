@@ -22,7 +22,6 @@ html.theme-ready {
 
 /* Dark theme variables - Applied when .dark-mode class is present */
 html.dark-mode {
-    --theme-color: #3391ff;
     --background-color: #121212;
     --text-color: #ffffff;
     --link-color: var(--theme-color);
