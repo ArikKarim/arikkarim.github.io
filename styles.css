@@ -10,7 +10,7 @@ html.theme-ready {
 /* Base theme variables - Define both themes immediately */
 :root {
     /* Define a single theme color variable */
-    --theme-color: #007BFF;
+    --theme-color: #b00b69;
 
     /* Light theme variables */
     --background-color: #ffffff;
