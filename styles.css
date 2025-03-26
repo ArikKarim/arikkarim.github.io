@@ -9,19 +9,23 @@ html.theme-ready {
 
 /* Base theme variables - Define both themes immediately */
 :root {
+    /* Define a single theme color variable */
+    --theme-color: #007BFF;
+
     /* Light theme variables */
     --background-color: #ffffff;
     --text-color: #000000;
-    --link-color: #007BFF;
+    --link-color: var(--theme-color);
     --footer-text-color: #666666;
     --border-color: #cccccc;
 }
 
 /* Dark theme variables - Applied when .dark-mode class is present */
 html.dark-mode {
+    --theme-color: #3391ff;
     --background-color: #121212;
     --text-color: #ffffff;
-    --link-color: #3391ff;
+    --link-color: var(--theme-color);
     --footer-text-color: #aaaaaa;
     --border-color: #444444;
 }
@@ -80,23 +84,6 @@ body {
     stroke: currentColor;
     stroke-width: 2;
     fill: none;
-}
-
-/* Base styles using CSS variables */
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
-}
-
-.container {
-    max-width: 900px;
-    margin: 1% auto 0;
-    padding: 15px;
 }
 
 /* Base link styling */
