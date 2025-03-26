@@ -10,7 +10,7 @@ html.theme-ready {
 /* Base theme variables - Define both themes immediately */
 :root {
     /* Define a single theme color variable */
-    --theme-color: #007BFF;
+    --theme-color: #b00b69;
 
     /* Light theme variables */
     --background-color: #ffffff;
@@ -105,7 +105,7 @@ a:not(.button)::before {
     left: 0;
     width: 0; /* Initially hidden */
     height: 1px; /* Thickness of underline */
-    background-color: currentColor; /* Matches link color */
+    background-color: var(--link-color); /* Matches link color */
     transition: width 0.3s ease-in-out; /* Smooth sliding effect */
 }
 
@@ -179,7 +179,7 @@ a:not(.button):hover::before {
 }
 
 input:checked + .slider {
-    background-color: var(--link-color); /* Toggle ON color matches theme */
+    background-color: var(--theme-color); /* Toggle ON color matches theme */
 }
 
 input:checked + .slider:before {
