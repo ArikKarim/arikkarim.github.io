@@ -7,15 +7,15 @@ html.theme-ready {
     visibility: visible;
 }
 
-/* Base theme variables - Define both themes immediately */
+/* Base theme variables */
 :root {
-    /* Define a single theme color variable */
-    --theme-color: #6340b6;
+    /* Accent color controller */
+    --accent-color: #6340b6;
 
     /* Light theme variables */
     --background-color: #ffffff;
     --text-color: #000000;
-    --link-color: var(--theme-color);
+    --link-color: var(--accent-color);
     --footer-text-color: #666666;
     --border-color: #cccccc;
 }
@@ -24,7 +24,7 @@ html.theme-ready {
 html.dark-mode {
     --background-color: #121212;
     --text-color: #ffffff;
-    --link-color: var(--theme-color);
+    --link-color: var(--accent-color);
     --footer-text-color: #aaaaaa;
     --border-color: #444444;
 }
@@ -178,7 +178,7 @@ a:not(.button):hover::before {
 }
 
 input:checked + .slider {
-    background-color: var(--theme-color); /* Toggle ON color matches theme */
+    background-color: var(--accent-color); /* Toggle ON color matches theme */
 }
 
 input:checked + .slider:before {
