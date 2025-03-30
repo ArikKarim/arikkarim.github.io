@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arik karim</title>
+    <title>research | arik karim</title>
     
     <style>
         /* Preload and visibility management */
@@ -18,11 +18,14 @@
         html {
             --bg-color: #ffffff;
             --text-color: #333333;
+            --accent-color: #30b1ff;
+            --border-color: #cccccc;
         }
         
         html.dark-mode {
             --bg-color: #121212;
             --text-color: #f5f5f5;
+            --border-color: #444444;
         }
         
         /* Smooth theme transitions */
@@ -83,6 +86,94 @@
 
         input:checked + .slider:before {
             transform: translateX(26px);
+        }
+        
+        /* Filter button styling - smaller version of your standard button */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .filter-button {
+            font-family: 'Inter', sans-serif;
+            padding: 5px 10px;
+            text-decoration: none;
+            border: 1.5px solid var(--text-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            background-color: transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 400;
+            align-items: center;
+            width: fit-content;
+            display: inline-flex;
+        }
+        
+        .filter-button:hover {
+            color: var(--bg-color);
+            background-color: var(--text-color);
+            border-color: var(--text-color);
+        }
+        
+        .filter-button.active {
+            color: var(--bg-color);
+            background-color: var(--text-color);
+            border-color: var(--text-color);
+        }
+        
+        /* Research papers list styling */
+        .papers-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .papers-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .papers-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .papers-list a {
+            position: relative;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .papers-list a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease-in-out;
+        }
+        
+        .papers-list a:hover::before {
+            width: 100%;
+        }
+        
+        .paper-category {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: rgba(var(--text-color-rgb), 0.1);
+            margin-left: 8px;
+        }
+        
+        /* Hide papers that don't match the current filter */
+        .paper-item.hidden {
+            display: none;
         }
     </style>
 
@@ -148,38 +239,89 @@
             </div>
         </header>
 
-        <section id=working">
-            <h2>working papers/projects</h2> 
-            <ul>
-                <li>identity & environment in political deliberation: scope conditions for improved discourse, debate, and dialogue <a href="https://docs.google.com/document/d/12oOeqJorNkRgV6TNal4bhbmTBqOL4dXPL3mFZYgqbp0/edit?usp=sharing" target="_blank">[proposal]</a></li>
-                <li>the sufficiency spectacle: a new human rights paradigm for developing countries  <a href="https://docs.google.com/document/d/1582FdczQmjcsF0iSVsuYXYqYW5wws00iTZIHBcofk-A/edit?usp=sharing" target="_blank">[paper]</a></li>
-                <li>scotus amicus brief on <i>trump v. casa</i> (birthright citizenship executive order)</li>
-            </ul>
-        </section>
-        
-        <section id="published">
-            <h2>preprints/publications</h2> 
-            <ul>
-                <li>high-speed rail: recommendations for a new era of american infrastructure <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4408880" target="_blank">[paper]</a></li>
-                <li>financial literacy in american high schoolers <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4795120" target="_blank">[paper]</a></li>
-                <li>state youth correctional policies: current practices and progressive recommendations <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4994676" target="_blank">[paper]</a></li>
-                <li>state regulation of social media and children in the united states <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5066626" target="_blank">[paper]</a></li>
-                <li>juvenile solitary confinement: by the states <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4994635" target="_blank">[paper]</a></li>
-                <li>lgbtq healthcare and incarceration in the united states <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5032219" target="_blank">[paper]</a></li>
-                <li>encouraging digital education and ensure youth protection <a href="https://www.ohchr.org/sites/default/files/documents/issues/digitalage/cfis/hrc57-promote-digital-education-young-people/subm-solutions-promote-digital-cso-spring-group.pdf" target="_blank">[paper]</a></li>
-                <li>combating child exploitation on social media <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4652240" target="_blank">[preprint]</a></li>
-                <li>united kingdom's national quantum strategy <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4592939" target="_blank">[preprint]</a></li>
-                <li>minimum wage: federal and state recommendations <a href="https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID4607088_code5533455.pdf?abstractid=4607088&mirid=1&type=2" target="_blank">[preprint]</a></li>
-                <li>america's debt ceiling <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4616329" target="_blank">[preprint]</a></li>
-                <li>youth perspectives on the united nations high-level advisory board on artificial intelligence <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4652758" target="_blank">[preprint]</a></li>
-                <li>corporate accountability in the context of human rights & climate change <a href="" target="_blank">[preprint]</a></li>
-                <li>transparency in arms transfers <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4795518" target="_blank">[preprint]</a></li>
-                <li>mauritius national youth statement 2024 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4950413" target="_blank">[preprint]</a></li>
-                <li>united nations pact for the future zero draft <a href="https://www.un.org/sites/un2.un.org/files/sof-the-spring-group-input-zero-draft-pact-for-future.pdf" target="_blank">[paper]</a>
-                <li>united states department of commerce's cloud security proposal <a href="https://www.regulations.gov/comment/DOC-2021-0007-0519" target="_blank">[comment]</a></li>
-                <li>federal trade commission children's online privacy protection rule <a href="https://www.regulations.gov/comment/FTC-2024-0003-0211" target="_blank">[comment]</a></li>
-                <li>national institute of standards and technology's global engagement with ai standards <a href="https://www.regulations.gov/comment/NIST-2024-0001-0209" target="_blank">[comment]</a></li>
-                <li>reducing risks posed by synthetic digital content <a href="https://www.regulations.gov/comment/NIST-2024-0001-0102" target="_blank">[comment]</a></li>
+        <section id="research">
+            <h2>research</h2>
+            
+            <div class="filter-container">
+                <button class="filter-button active" data-filter="all">all papers</button>
+                <button class="filter-button" data-filter="policy">policy</button>
+                <button class="filter-button" data-filter="tech">technology</button>
+                <button class="filter-button" data-filter="rights">human rights</button>
+                <button class="filter-button" data-filter="youth">youth</button>
+            </div>
+            
+            <ul class="papers-list">
+                <!-- Policy Papers -->
+                <li class="paper-item" data-category="policy">
+                    high-speed rail: recommendations for a new era of american infrastructure 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4408880" target="_blank">[paper]</a>
+                </li>
+                <li class="paper-item" data-category="policy">
+                    financial literacy in american high schoolers 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4795120" target="_blank">[paper]</a>
+                </li>
+                <li class="paper-item" data-category="policy youth">
+                    state youth correctional policies: current practices and progressive recommendations 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4994676" target="_blank">[paper]</a>
+                </li>
+                <li class="paper-item" data-category="policy tech youth">
+                    state regulation of social media and children in the united states 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5066626" target="_blank">[paper]</a>
+                </li>
+                
+                <!-- Human Rights Papers -->
+                <li class="paper-item" data-category="rights youth">
+                    juvenile solitary confinement: by the states 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4994635" target="_blank">[paper]</a>
+                </li>
+                <li class="paper-item" data-category="rights">
+                    lgbtq healthcare and incarceration in the united states 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5032219" target="_blank">[paper]</a>
+                </li>
+                <li class="paper-item" data-category="rights tech youth">
+                    encouraging digital education and ensure youth protection 
+                    <a href="https://www.ohchr.org/sites/default/files/documents/issues/digitalage/cfis/hrc57-promote-digital-education-young-people/subm-solutions-promote-digital-cso-spring-group.pdf" target="_blank">[paper]</a>
+                </li>
+                
+                <!-- Technology Papers -->
+                <li class="paper-item" data-category="tech rights youth">
+                    combating child exploitation on social media 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4652240" target="_blank">[preprint]</a>
+                </li>
+                <li class="paper-item" data-category="tech">
+                    united kingdom's national quantum strategy 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4592939" target="_blank">[preprint]</a>
+                </li>
+                
+                <!-- Other Papers -->
+                <li class="paper-item" data-category="policy">
+                    minimum wage: federal and state recommendations 
+                    <a href="https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID4607088_code5533455.pdf?abstractid=4607088&mirid=1&type=2" target="_blank">[preprint]</a>
+                </li>
+                <li class="paper-item" data-category="policy">
+                    america's debt ceiling 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4616329" target="_blank">[preprint]</a>
+                </li>
+                <li class="paper-item" data-category="tech youth">
+                    youth perspectives on the united nations high-level advisory board on artificial intelligence 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4652758" target="_blank">[preprint]</a>
+                </li>
+                <li class="paper-item" data-category="rights">
+                    corporate accountability in the context of human rights & climate change 
+                    <a href="#" target="_blank">[preprint]</a>
+                </li>
+                <li class="paper-item" data-category="rights">
+                    transparency in arms transfers 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4795518" target="_blank">[preprint]</a>
+                </li>
+                <li class="paper-item" data-category="youth">
+                    mauritius national youth statement 2024 
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4950413" target="_blank">[preprint]</a>
+                </li>
+                <li class="paper-item" data-category="rights">
+                    united nations pact for the future zero draft 
+                    <a href="https://www.un.org/sites/un2.un.org/files/sof-the-spring-group-input-zero-draft-pact-for-future.pdf" target="_blank">[paper]</a>
+                </li>
             </ul>
         </section>
         
@@ -198,11 +340,51 @@
         </footer>
     </div>
     
-    <script src="script.js"></script>
-    
-    <!-- 
-    <audio id="toggle-sound" preload="auto" src="toggle-sound.mp3"></audio>
-    <audio id="untoggle-sound" preload="auto" src="untoggle-sound.mp3"></audio>
-    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            themeToggle.addEventListener('change', function() {
+                const theme = this.checked ? 'dark' : 'light';
+                document.documentElement.classList.toggle('dark-mode', this.checked);
+                localStorage.setItem('theme', theme);
+                
+                // Sync theme with other open pages
+                localStorage.setItem('theme-sync', JSON.stringify({
+                    theme: theme,
+                    timestamp: new Date().getTime()
+                }));
+            });
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const paperItems = document.querySelectorAll('.paper-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter papers
+                    paperItems.forEach(item => {
+                        if (filter === 'all') {
+                            item.classList.remove('hidden');
+                        } else {
+                            const categories = item.getAttribute('data-category').split(' ');
+                            if (categories.includes(filter)) {
+                                item.classList.remove('hidden');
+                            } else {
+                                item.classList.add('hidden');
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
