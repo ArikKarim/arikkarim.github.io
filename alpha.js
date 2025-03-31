@@ -93,33 +93,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
             
-            // Update the last-visible class for border styling
-            updateLastVisibleItems();
+            // Update dividers after filtering
+            updateDividers();
         });
     });
     
-    // Function to update the last-visible class for each category group
-    function updateLastVisibleItems() {
-        // Remove all last-visible classes first
-        paperItems.forEach(item => item.classList.remove('last-visible'));
-        
-        // Loop through visible items and mark the last one in each section
-        let lastVisibleIndex = -1;
-        
-        paperItems.forEach((item, index) => {
-            if (!item.classList.contains('hidden')) {
-                lastVisibleIndex = index;
-            }
-            
-            // Check if next item is hidden or doesn't exist
-            const nextItem = paperItems[index + 1];
-            if (lastVisibleIndex === index && 
-                (!nextItem || nextItem.classList.contains('hidden'))) {
-                item.classList.add('last-visible');
-            }
+    // Function to update dividers for proper styling
+    function updateDividers() {
+        // First, reset all papers to have bottom borders
+        paperItems.forEach(item => {
+            item.style.borderBottom = '1px solid var(--border-color)';
+            // Also add top border for all items
+            item.style.borderTop = '1px solid var(--border-color)';
+            // Remove the border from the first visible item's top
+            item.classList.remove('last-visible');
         });
+        
+        // Find all visible items
+        const visibleItems = Array.from(paperItems).filter(item => 
+            !item.classList.contains('hidden')
+        );
+        
+        // Remove top border from the first visible item
+        if (visibleItems.length > 0) {
+            visibleItems[0].style.borderTop = 'none';
+        }
+        
+        // Remove bottom border from the last visible item
+        if (visibleItems.length > 0) {
+            visibleItems[visibleItems.length - 1].style.borderBottom = 'none';
+            visibleItems[visibleItems.length - 1].classList.add('last-visible');
+        }
     }
     
-    // Initialize filters on page load
-    updateLastVisibleItems();
+    // Initialize dividers on page load
+    updateDividers();
 });
