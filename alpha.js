@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Theme toggle functionality (keeping your existing code)
+    // Select the theme toggle switch
     const themeToggle = document.getElementById('theme-toggle');
     
+    // Function to get the current theme from localStorage or system preference
     function getCurrentTheme() {
         return localStorage.getItem('theme') || 
                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     }
     
+    // Function to apply the theme and update the toggle position
     function applyTheme(theme) {
         document.documentElement.classList.toggle('dark-mode', theme === 'dark');
         if (themeToggle) {
@@ -14,14 +16,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
+    // Initialize theme on page load
     const savedTheme = getCurrentTheme();
     applyTheme(savedTheme);
     
+    // Toggle theme on switch change
     if (themeToggle) {
         themeToggle.addEventListener('change', function () {
             const newTheme = this.checked ? 'dark' : 'light';
             applyTheme(newTheme);
             localStorage.setItem('theme', newTheme);
+            // Sync theme with other open pages
             localStorage.setItem('theme-sync', JSON.stringify({
                 theme: newTheme,
                 timestamp: new Date().getTime()
@@ -29,13 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     
+    // Sync theme changes across multiple open tabs
     window.addEventListener('storage', function (event) {
         if (event.key === 'theme-sync') {
             const data = JSON.parse(event.newValue);
             applyTheme(data.theme);
         }
     });
-
+    
     // Alphabetize papers function - specifically for the preprints/publications section
     function alphabetizePapers() {
         // Target only the papers-list within the published section
@@ -55,7 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
             return textA.localeCompare(textB);
         });
         
-        // Reappend sorted papers to the list
+        // Clear the list and reappend the sorted papers
+        while (papersList.firstChild) {
+            papersList.removeChild(papersList.firstChild);
+        }
+        
         papers.forEach(paper => {
             papersList.appendChild(paper);
         });
@@ -93,39 +103,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
             
-            // Update dividers after filtering
-            updateDividers();
+            // Update the last-visible class for border styling
+            updateLastVisibleItems();
         });
     });
     
-    // Function to update dividers for proper styling
-    function updateDividers() {
-        // First, reset all papers to have bottom borders
-        paperItems.forEach(item => {
-            item.style.borderBottom = '1px solid var(--border-color)';
-            // Also add top border for all items
-            item.style.borderTop = '1px solid var(--border-color)';
-            // Remove the border from the first visible item's top
-            item.classList.remove('last-visible');
-        });
-        
-        // Find all visible items
+    // Function to update the last-visible class for border styling
+    function updateLastVisibleItems() {
         const visibleItems = Array.from(paperItems).filter(item => 
             !item.classList.contains('hidden')
         );
         
-        // Remove top border from the first visible item
-        if (visibleItems.length > 0) {
-            visibleItems[0].style.borderTop = 'none';
-        }
+        // Remove the last-visible class from all items
+        paperItems.forEach(item => {
+            item.classList.remove('last-visible');
+        });
         
-        // Remove bottom border from the last visible item
+        // Add the last-visible class to the last visible item
         if (visibleItems.length > 0) {
-            visibleItems[visibleItems.length - 1].style.borderBottom = 'none';
             visibleItems[visibleItems.length - 1].classList.add('last-visible');
         }
     }
     
-    // Initialize dividers on page load
-    updateDividers();
+    // Initialize filters and last-visible class on page load
+    updateLastVisibleItems();
 });
