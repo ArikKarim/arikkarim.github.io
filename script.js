@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Play sound based on theme
+    /*
     function playThemeSound(theme) {
         // Create audio elements if they don't exist
         if (!toggleSound) {
@@ -99,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Sound play error:', error);
         }
     }
+    */
     
     // Toggle theme function
     function toggleTheme() {
@@ -106,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         // Play sound
-        playThemeSound(newTheme);
+        // playThemeSound(newTheme);
         
         // Apply new theme
         applyTheme(newTheme);
@@ -153,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const newTheme = newDarkMode ? 'dark' : 'light';
                 
                 // Play sound for theme change
-                playThemeSound(newTheme);
+                // playThemeSound(newTheme);
                 
                 // Apply theme
                 applyTheme(newTheme);
