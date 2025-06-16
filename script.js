@@ -201,6 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial setup
     applyTheme(getCurrentTheme());
     setupEventListeners();
-    setupTextReveal();
+    // setupTextReveal();
     logElementStatus();
 });
