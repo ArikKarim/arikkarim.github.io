@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Text reveal animation setup
     function setupTextReveal() {
-        const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, .reveal-text');
+        const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .reveal-text');
 
         elements.forEach(el => {
             // Ensure base class is present for animation
