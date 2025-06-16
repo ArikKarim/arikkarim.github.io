@@ -162,6 +162,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+        // Text reveal animation setup
+    function setupTextReveal() {
+        const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .reveal-text');
+
+        elements.forEach(el => {
+            // Ensure base class is present for animation
+            if (!el.classList.contains('reveal-text')) {
+                el.classList.add('reveal-text');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    obs.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+    }
     
     // Cross-tab sync
     window.addEventListener('storage', function(e) {
@@ -178,5 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial setup
     applyTheme(getCurrentTheme());
     setupEventListeners();
+    setupTextReveal();
     logElementStatus();
 });
