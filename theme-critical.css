@@ -1,0 +1,11 @@
+/* First-paint theme: loads before main stylesheet to avoid flash (replaces visibility:hidden). */
+html {
+    color-scheme: light dark;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+html.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}

@@ -1,18 +1,41 @@
-/* Theme visibility control */
-html {
-    visibility: hidden;
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
 }
 
-html.theme-ready {
-    visibility: visible;
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0.75rem;
+    z-index: 1000;
+    padding: 0.5rem 1rem;
+    background: var(--accent-color);
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.skip-link:focus {
+    left: 0.75rem;
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
 }
 
 /* Base theme variables */
 :root {
-    /* Accent color controller */
     --accent-color: #30b1ff;
-
-    /* Light theme variables */
     --background-color: #ffffff;
     --text-color: #000000;
     --link-color: var(--accent-color);
@@ -20,7 +43,6 @@ html.theme-ready {
     --border-color: #cccccc;
 }
 
-/* Dark theme variables - Applied when .dark-mode class is present */
 html.dark-mode {
     --background-color: #121212;
     --text-color: #ffffff;
@@ -29,7 +51,19 @@ html.dark-mode {
     --border-color: #444444;
 }
 
-/* Base styles using CSS variables */
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .button,
+    .slider,
+    .slider:before,
+    .filter-button,
+    a:not(.button)::before,
+    .papers-list a::before,
+    .footer a::before {
+        transition: none;
+    }
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -37,7 +71,7 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -48,7 +82,9 @@ body {
 
 .button {
     font-family: 'Inter', sans-serif;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     padding: 8px 15px;
     text-decoration: none;
     border: 2px solid var(--text-color);
@@ -59,19 +95,15 @@ body {
     cursor: pointer;
     font-size: 1rem;
     font-weight: 400;
-    align-items: center;
-    gap: 8px;
-    width: fit-content;  /* Ensures button only spans necessary width */
-    display: inline-flex;  /* Changed from flex to inline-flex */
+    width: fit-content;
 }
 
 .button:hover {
     color: var(--background-color);
     background-color: var(--text-color);
-    border-color: var(--text-color);  /* Ensures consistent border color on hover */
+    border-color: var(--text-color);
 }
 
-/* Remove any potential pseudo-element lines */
 .button:hover::before,
 .button:hover::after {
     content: none;
@@ -85,7 +117,6 @@ body {
     fill: none;
 }
 
-/* Base link styling */
 a:not(.button) {
     position: relative;
     color: var(--link-color);
@@ -93,26 +124,24 @@ a:not(.button) {
 }
 
 a:not(.button):hover {
-    text-decoration: none; /* Prevent default underline behavior */
+    text-decoration: none;
 }
 
-/* Sliding underline effect for non-button hyperlinks */
 a:not(.button)::before {
     content: "";
     position: absolute;
-    bottom: 0; /* Position underline at the bottom of text */
+    bottom: 0;
     left: 0;
-    width: 0; /* Initially hidden */
-    height: 1px; /* Thickness of underline */
-    background-color: var(--link-color); /* Matches link color */
-    transition: width 0.3s ease-in-out; /* Smooth sliding effect */
+    width: 0;
+    height: 1px;
+    background-color: var(--link-color);
+    transition: width 0.3s ease-in-out;
 }
 
 a:not(.button):hover::before {
-    width: 100%; /* Full underline width on hover */
+    width: 100%;
 }
 
-/* Header styles */
 .header {
     display: flex;
     justify-content: space-between;
@@ -122,8 +151,8 @@ a:not(.button):hover::before {
 }
 
 .header h1 a {
-    color: inherit; /* Inherits the text color from the parent */
-    text-decoration: none; /* Removes underline */
+    color: inherit;
+    text-decoration: none;
 }
 
 .header h1 a:hover {
@@ -132,10 +161,9 @@ a:not(.button):hover::before {
 }
 
 .header h1 a::before {
-    display: none; /* Removes the sliding underline effect */
+    display: none;
 }
 
-/* Toggle switch styles */
 .toggle-container {
     position: relative;
 }
@@ -159,7 +187,7 @@ a:not(.button):hover::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc; /* Default background */
+    background-color: #ccc;
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -178,14 +206,13 @@ a:not(.button):hover::before {
 }
 
 input:checked + .slider {
-    background-color: var(--accent-color); /* Toggle ON color matches theme */
+    background-color: var(--accent-color);
 }
 
 input:checked + .slider:before {
     transform: translateX(25px);
 }
 
-/* Section styles */
 section {
     margin: 20px 0;
 }
@@ -195,7 +222,6 @@ section h2 {
     margin-bottom: 10px;
 }
 
-/* Footer styles */
 .footer-line {
     width: 100%;
     border: none;
@@ -213,16 +239,42 @@ section h2 {
     border-top: 1px solid var(--border-color);
 }
 
-/* Footer link styling */
+.footer-nav-wrap {
+    display: block;
+}
+
+.footer-nav {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 10px;
+}
+
+.footer-nav li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-nav li:not(:last-child)::after {
+    content: "•";
+    margin-left: 10px;
+    color: var(--footer-text-color);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 .footer a {
     position: relative;
     text-decoration: none;
     color: inherit;
-    margin: 0 5px;
-    transition: color 0.3s;
+    padding: 6px 4px;
+    transition: color 0.2s ease;
 }
 
-/* Sliding underline effect for footer links */
 .footer a::before {
     content: "";
     position: absolute;
@@ -231,51 +283,102 @@ section h2 {
     width: 0;
     height: 1px;
     background-color: currentColor;
-    transition: width 0.3s ease-in-out;
+    transition: width 0.2s ease-in-out;
+}
+
+.footer a:hover {
+    color: var(--link-color);
 }
 
 .footer a:hover::before {
     width: 100%;
 }
 
-.footer a:hover {
-    font-weight: bold;
+.footer-meta {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
 }
 
-/* Footer link hover effects with unique colors - unchanged */
-.footer .email:hover {
-    color: #d34b3d; /* Email Red */
+/* Work page: publication filters and list */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
 }
 
-.footer .github:hover {
-    color: #333; /* Github Dark Gray */
+.filter-button {
+    font-family: 'Inter', sans-serif;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1.5px solid var(--text-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
 }
 
-.footer .linkedin:hover {
-    color: #0A66C2; /* LinkedIn Blue */
+.filter-button:hover {
+    color: var(--background-color);
+    background-color: var(--text-color);
+    border-color: var(--text-color);
 }
 
-.footer .ssrn:hover {
-    color: #0a1b49; /* SSRN Purple */
+.filter-button.active {
+    color: var(--background-color);
+    background-color: var(--text-color);
+    border-color: var(--text-color);
 }
 
-.footer .instagram:hover {
-    color: #E4405F; /* Instagram Pink */
+.papers-list {
+    list-style-type: none;
+    padding: 0;
 }
 
-.footer .substack:hover {
-    color: #ff6719; /* Substack Orange */
+.papers-list li {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.footer .twitter:hover {
-    color: #1DA1F2; /* Twitter Blue */
+.papers-list li:last-child,
+.papers-list li.last-visible {
+    border-bottom: none;
 }
 
-.footer .scholar:hover {
-    color: #4285F4; /* Google Scholar Blue */
+.papers-list a {
+    position: relative;
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
-/* Dark mode overrides for specific elements - only what can't be handled by variables */
-html.dark-mode .footer .github:hover {
-    color: #f0f0f0; /* Lighter color for dark mode */
+.papers-list a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.papers-list a:hover::before {
+    width: 100%;
+}
+
+.paper-item.hidden {
+    display: none;
+}
+
+.muted {
+    opacity: 0.75;
+    font-weight: 400;
 }

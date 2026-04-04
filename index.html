@@ -5,211 +5,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arik Karim</title>
-    
-    <!-- SEO canonical link -->
-    <link rel="canonical" href="https://arikkarim.github.io/">
+    <meta name="description" content="Arik Karim — international economics and political science at the Elliott School (GWU). Policy research, emerging technology, and multilateral institutions.">
 
-    <!-- Font preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Preload and visibility management */
-        html {
-            visibility: hidden;
-        }
-        html.theme-ready {
-            visibility: visible;
-        }
-        
-        /* Color variables for light and dark modes */
-        html {
-            --bg-color: #ffffff;
-            --text-color: #333333;
-        }
-        
-        html.dark-mode {
-            --bg-color: #121212;
-            --text-color: #f5f5f5;
-        }
-        
-        /* Smooth theme transitions */
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
 
-        /* Theme toggle styling */
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
+    <link rel="canonical" href="https://arikkarim.com/">
 
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arikkarim.com/">
+    <meta property="og:title" content="Arik Karim">
+    <meta property="og:description" content="Economics and political science at the Elliott School. Policy research, technology, and multilateral cooperation.">
+    <meta property="og:locale" content="en_US">
 
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Arik Karim">
+    <meta name="twitter:description" content="Economics and political science at the Elliott School. Policy research, technology, and multilateral cooperation.">
 
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
+    <link rel="stylesheet" href="/theme-critical.css">
+    <script src="/theme-boot.js"></script>
 
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: var(--accent-color);
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-    </style>
-
-    <script>
-        (function() {
-            // Enhanced theme synchronization logic
-            function getCurrentTheme() {
-                return localStorage.getItem('theme') || 
-                       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "name": "Arik Karim",
+                "url": "https://arikkarim.com/"
+            },
+            {
+                "@type": "Person",
+                "name": "Arik Karim",
+                "url": "https://arikkarim.com/",
+                "email": "arik.karim@gwu.edu",
+                "jobTitle": "Student",
+                "affiliation": {
+                    "@type": "EducationalOrganization",
+                    "name": "George Washington University",
+                    "url": "https://www.gwu.edu/"
+                },
+                "sameAs": [
+                    "https://github.com/ArikKarim",
+                    "https://scholar.google.com/citations?user=ANVlVyoAAAAJ&hl=en",
+                    "https://linkedin.com/in/arikkarim/",
+                    "https://instagram.com/arikkarim/",
+                    "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5793939",
+                    "https://arikkarim.substack.com/",
+                    "https://x.com/arikulkarim"
+                ]
             }
-            
-            // Function to apply theme
-            function applyTheme(theme) {
-                const html = document.documentElement;
-                const themeToggle = document.getElementById('theme-toggle');
-                
-                if (theme === 'dark') {
-                    html.classList.add('dark-mode');
-                    if (themeToggle) themeToggle.checked = true;
-                } else {
-                    html.classList.remove('dark-mode');
-                    if (themeToggle) themeToggle.checked = false;
-                }
-            }
-
-            // Initial theme application
-            applyTheme(getCurrentTheme());
-
-            // Sync theme across pages
-            window.addEventListener('storage', function(e) {
-                if (e.key === 'theme-sync') {
-                    try {
-                        const data = JSON.parse(e.newValue);
-                        applyTheme(data.theme);
-                    } catch (error) {
-                        console.error('Theme sync error:', error);
-                    }
-                }
-            });
-
-            // Ensure theme is set before page becomes visible
-            setTimeout(function() {
-                document.documentElement.classList.add('theme-ready');
-            }, 10);
-        })();
+        ]
+    }
     </script>
-    
-    <link id="favicon" rel="icon" href="akfavicon1.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+
+    <link id="favicon" rel="icon" href="/akfavicon1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js" defer></script>
 </head>
-    
+
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="container">
         <header class="header">
-            <h1><a href="/" class="home-link">Arik Karim</a></h1>
+            <h1><a href="https://arikkarim.com/" class="home-link">Arik Karim</a></h1>
             <div class="toggle-container">
                 <label class="toggle-switch">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider"></span>
+                    <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="slider" aria-hidden="true"></span>
                 </label>
             </div>
         </header>
-        
-        <section id="welcome">
-            <h2>Welcome!</h2>
-            <p>I'm Arik, an international economics & political science double major @ <a href="https://elliott.gwu.edu/" target="_blank">The Elliott School for International Affairs</a>. I'm fascinated by emerging technologies, economic thinking, and multilateralism. In my free time, you can find me speedcubing, practicing cardistry, and playing poker!</p> 
-            <p>Currently:</p> 
-            <ul>
-                <li>Optimizing UX for students via the ChatGPT Lab @ <a href="https://openai.com/" target="_blank">OpenAI</a></li>
-                <li>Researching dual-use tech regulatory reform in the age of AI @ <a href="https://www.gwu.edu/" target="_blank">George Washington University</a></li>
-                <li>Overseeing youth-centered policy research @ <a href="https://thespringgroup.org/" target="_blank">The SPRING Group</a></li>
-            </ul>
-            <p>This past summer, I studied Japanese via the Critical Language Scholarship @ <a href="https://www.state.gov/" target="_blank">The U.S. Department of State</a>, assisted with growth/GTM @ <a href="https://www.sway.co/" target="_blank">Sway</a>, and quality assured code @ <a href="https://terac.com/" target="_blank">Terac</a>. Previously, I've conducted research across sociology and psychology domains @ <a href="https://harvard.edu/" target="_blank">Harvard</a> and <a href="https://columbia.edu/" target="_blank">Columbia</a>, drafted legislation @ <a href="https://flsenate.gov/" target="_blank">The Florida Senate</a>, and studied Japanese security politics and history @ <a href="https://stanford.edu/" target="_blank">Stanford</a>.</p>
-        </section>
-        
-        <section id="work">
-            <h2>Work</h2>
-            <p>Recently:</p>
-            <ul>
-                <li>Filed an amicus brief to the Supreme Court on the birthright citizenship executive order case</li>
-                <li>Critiqued modern methodologies in political deliberation research</li>
-                <li>Analyzed the contributing factors to the sufficiency human rights paradigm</li>
-            </ul>
-            <a href="work.html" class="button">
-                view all
-                <svg class="button-arrow" viewBox="0 0 24 24">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </a>
-        </section>
-        
-        <section id="reads">
-            <h2>Reads</h2>
-            <ul>
-                <li><a href="https://www.amazon.com/Misbehaving-Behavioral-Economics-Richard-Thaler/dp/039335279X" target="_blank"><i>Misbehaving</i></a> by Richard Thaler</li>
-                <li><a href="https://press.princeton.edu/books/paperback/9780691260341/technology-and-the-rise-of-great-powers" target="_blank"><i>Technology and the Rise of Great Powers</i></a> by Jeffrey Ding</li>
-                <li><a href="https://simonandschuster.com/books/Big-Bets/Rajiv-Shah/9781668004388" target="_blank"><i>Big Bets</i></a> by Rajiv Shah</li>
-                <li><a href="https://amazon.com/Why-Nations-Fail-Origins-Prosperity/dp/0307719227" target="_blank"><i>Why Nations Fail</i></a> & <a href="https://penguinrandomhouse.com/books/555400/the-narrow-corridor-by-daron-acemoglu-and-james-a-robinson/" target="_blank"><i>The Narrow Corridor</i></a> by Daron Acemoglu and James A. Robinson</li>
-                <li><a href="https://amazon.com/Justice-Whats-Right-Thing-Do/dp/0374532508" target="_blank"><i>Justice</i></a> & <a href="https://amazon.com/What-Money-Cant-Buy-Markets/dp/0374203032" target="_blank"><i>What Money Can't Buy</i></a> by Michael Sandel</li>
-            </ul>
-        </section>
-        
+
+        <main id="main-content">
+            <section id="welcome">
+                <h2>Welcome</h2>
+                <p><strong>I’m Arik Karim</strong> — international economics and political science at the <a href="https://elliott.gwu.edu/" target="_blank" rel="noopener noreferrer">Elliott School of International Affairs</a> (George Washington University). I care about how institutions handle emerging technology, economic ideas, and multilateral cooperation. Outside of work: speedcubing, cardistry, and poker.</p>
+
+                <p><strong>Now</strong> <span class="muted">(April 2026)</span></p>
+                <ul>
+                    <li>Optimizing UX for students via the ChatGPT Lab at <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI</a></li>
+                    <li>Researching dual-use technology and regulatory reform in the age of AI at <a href="https://www.gwu.edu/" target="_blank" rel="noopener noreferrer">George Washington University</a></li>
+                    <li>Overseeing youth-centered policy research at <a href="https://thespringgroup.org/" target="_blank" rel="noopener noreferrer">The SPRING Group</a></li>
+                </ul>
+
+                <p><strong>Recently</strong></p>
+                <p>Studied Japanese through the Critical Language Scholarship (<a href="https://www.state.gov/" target="_blank" rel="noopener noreferrer">U.S. Department of State</a>); growth and GTM at <a href="https://www.sway.co/" target="_blank" rel="noopener noreferrer">Sway</a>; code quality at <a href="https://terac.com/" target="_blank" rel="noopener noreferrer">Terac</a>. Earlier research across sociology and psychology at <a href="https://harvard.edu/" target="_blank" rel="noopener noreferrer">Harvard</a> and <a href="https://columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia</a>; legislative drafting at the <a href="https://flsenate.gov/" target="_blank" rel="noopener noreferrer">Florida Senate</a>; Japanese security politics and history at <a href="https://stanford.edu/" target="_blank" rel="noopener noreferrer">Stanford</a>.</p>
+            </section>
+
+            <section id="work">
+                <h2>Work</h2>
+                <p>Recently:</p>
+                <ul>
+                    <li>Filed an amicus brief to the Supreme Court on the birthright citizenship executive order case</li>
+                    <li>Critiqued modern methodologies in political deliberation research</li>
+                    <li>Analyzed the contributing factors to the sufficiency human rights paradigm</li>
+                </ul>
+                <a href="https://arikkarim.com/work" class="button">
+                    view all
+                    <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </section>
+
+            <section id="reads">
+                <h2>Reads</h2>
+                <ul>
+                    <li><a href="https://www.amazon.com/Misbehaving-Behavioral-Economics-Richard-Thaler/dp/039335279X" target="_blank" rel="noopener noreferrer"><i>Misbehaving</i></a> by Richard Thaler</li>
+                    <li><a href="https://press.princeton.edu/books/paperback/9780691260341/technology-and-the-rise-of-great-powers" target="_blank" rel="noopener noreferrer"><i>Technology and the Rise of Great Powers</i></a> by Jeffrey Ding</li>
+                    <li><a href="https://simonandschuster.com/books/Big-Bets/Rajiv-Shah/9781668004388" target="_blank" rel="noopener noreferrer"><i>Big Bets</i></a> by Rajiv Shah</li>
+                    <li><a href="https://amazon.com/Why-Nations-Fail-Origins-Prosperity/dp/0307719227" target="_blank" rel="noopener noreferrer"><i>Why Nations Fail</i></a> &amp; <a href="https://penguinrandomhouse.com/books/555400/the-narrow-corridor-by-daron-acemoglu-and-james-a-robinson/" target="_blank" rel="noopener noreferrer"><i>The Narrow Corridor</i></a> by Daron Acemoglu and James A. Robinson</li>
+                    <li><a href="https://amazon.com/Justice-Whats-Right-Thing-Do/dp/0374532508" target="_blank" rel="noopener noreferrer"><i>Justice</i></a> &amp; <a href="https://amazon.com/What-Money-Cant-Buy-Markets/dp/0374203032" target="_blank" rel="noopener noreferrer"><i>What Money Can't Buy</i></a> by Michael Sandel</li>
+                </ul>
+            </section>
+        </main>
+
         <footer class="footer">
-            <p>
-                <a href="mailto:arik.karim@gwu.edu" target="_blank" class="email">email</a> • 
-                <a href="https://github.com/ArikKarim" target="_blank" class="github">github</a> • 
-                <a href="https://scholar.google.com/citations?user=ANVlVyoAAAAJ&hl=en" target="_blank" class="scholar">google scholar</a> • 
-                <a href="https://instagram.com/arikkarim/" target="_blank" class="instagram">instagram</a> • 
-                <a href="https://linkedin.com/in/arikkarim/" target="_blank" class="linkedin">linkedin</a> • 
-                <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5793939" target="_blank" class="ssrn">ssrn</a> • 
-                <a href="https://arikkarim.substack.com/" target="_blank" class="substack">substack</a> • 
-                <a href="https://x.com/arikulkarim" target="_blank" class="twitter">twitter/x</a>
-            </p>
-            <p>© 2025 Arik Karim</p>
+            <nav class="footer-nav-wrap" aria-label="Elsewhere on the web">
+                <ul class="footer-nav">
+                    <li><a href="mailto:arik.karim@gwu.edu" class="email">email</a></li>
+                    <li><a href="https://github.com/ArikKarim" target="_blank" rel="noopener noreferrer" class="github">github</a></li>
+                    <li><a href="https://scholar.google.com/citations?user=ANVlVyoAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="scholar">google scholar</a></li>
+                    <li><a href="https://instagram.com/arikkarim/" target="_blank" rel="noopener noreferrer" class="instagram">instagram</a></li>
+                    <li><a href="https://linkedin.com/in/arikkarim/" target="_blank" rel="noopener noreferrer" class="linkedin">linkedin</a></li>
+                    <li><a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5793939" target="_blank" rel="noopener noreferrer" class="ssrn">ssrn</a></li>
+                    <li><a href="https://arikkarim.substack.com/" target="_blank" rel="noopener noreferrer" class="substack">substack</a></li>
+                    <li><a href="https://x.com/arikulkarim" target="_blank" rel="noopener noreferrer" class="twitter">twitter/x</a></li>
+                </ul>
+            </nav>
+            <p class="footer-meta">© 2026 Arik Karim · <a href="https://arikkarim.com/">arikkarim.com</a></p>
         </footer>
     </div>
 </body>
