@@ -117,6 +117,14 @@ body {
     fill: none;
 }
 
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 0.5rem;
+}
+
 a:not(.button) {
     position: relative;
     color: var(--link-color);
@@ -233,8 +241,8 @@ section h2 {
 .footer {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    text-align: left;
+    align-items: center;
+    text-align: center;
     margin-top: 40px;
     font-size: 0.85rem;
     color: var(--footer-text-color);
@@ -253,7 +261,7 @@ section h2 {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 6px 10px;
 }
