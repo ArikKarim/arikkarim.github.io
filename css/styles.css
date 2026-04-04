@@ -125,6 +125,73 @@ body {
     margin-top: 0.5rem;
 }
 
+/* Public engagement page */
+.engagement-intro {
+    margin-bottom: 1.5rem;
+}
+
+.engagement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.engagement-item {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background-color: #111;
+}
+
+.video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.engagement-caption {
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+.engagement-caption h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.engagement-caption p {
+    margin: 0 0 0.75rem;
+}
+
+.engagement-caption p:last-child {
+    margin-bottom: 0;
+}
+
+.engagement-photo {
+    margin: 0;
+    line-height: 0;
+}
+
+.engagement-photo img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    display: block;
+}
+
 a:not(.button) {
     position: relative;
     color: var(--link-color);
