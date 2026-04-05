@@ -145,6 +145,10 @@ body {
     overflow: hidden;
 }
 
+.engagement-item--article .engagement-caption {
+    padding-top: 1.25rem;
+}
+
 .video-embed {
     position: relative;
     width: 100%;
