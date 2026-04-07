@@ -180,12 +180,6 @@ body {
     margin-right: auto;
 }
 
-.error-actions {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-}
-
 .engagement-caption {
     padding: 1rem 1.25rem 1.25rem;
 }
