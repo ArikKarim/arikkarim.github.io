@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.footer-year').forEach(function (el) {
+        el.textContent = String(new Date().getFullYear());
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) {
         return;
