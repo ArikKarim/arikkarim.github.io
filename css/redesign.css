@@ -343,6 +343,23 @@ input:focus-visible + .slider {
     margin-top: 0.7rem;
 }
 
+#working ul,
+#bookshelf ul {
+    margin: 1.1rem 0 0;
+    padding-left: 1.35rem;
+}
+
+#working li,
+#bookshelf li {
+    padding-left: 0.2rem;
+    line-height: 1.55;
+}
+
+#working li + li,
+#bookshelf li + li {
+    margin-top: 0.65rem;
+}
+
 .engagement-intro {
     margin: 0 0 2.5rem;
     color: var(--footer-text-color);
@@ -576,6 +593,22 @@ input:focus-visible + .slider {
         font-size: 0.52rem !important;
         letter-spacing: 0.055em;
         white-space: nowrap;
+    }
+
+    #working ul,
+    #bookshelf ul {
+        padding-left: 1.15rem;
+    }
+
+    #working li,
+    #bookshelf li {
+        padding-left: 0.15rem;
+        line-height: 1.5;
+    }
+
+    #working li + li,
+    #bookshelf li + li {
+        margin-top: 0.55rem;
     }
 }
 
