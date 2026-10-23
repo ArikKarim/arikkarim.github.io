@@ -6,8 +6,8 @@
     <title>Arik Karim — Bookshelf</title>
     <meta name="description" content="Books Arik Karim has read — economics, policy, technology, and political philosophy.">
 
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
 
     <link rel="canonical" href="https://arikkarim.com/reads/">
 
@@ -36,19 +36,27 @@
 
     <link id="favicon" rel="icon" href="/akfavicon1.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/redesign.css">
     <script src="/js/script.js" defer></script>
 </head>
 
-<body>
+<body class="content-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="container">
         <header class="header">
-            <h1><a href="https://arikkarim.com/" class="home-link">Arik Karim</a></h1>
-            <div class="toggle-container">
-                <label class="toggle-switch">
-                    <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-                    <span class="slider" aria-hidden="true"></span>
-                </label>
+            <h1 class="site-title"><a href="https://arikkarim.com/" class="home-link">Arik Karim</a></h1>
+            <div class="header-actions">
+                <nav class="primary-nav" aria-label="Primary navigation">
+                    <a href="/writing/">Work</a>
+                    <a href="/reads/">Reads</a>
+                    <a href="/files/Karim%2C%20Arik_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+                </nav>
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="slider" aria-hidden="true"></span>
+                    </label>
+                </div>
             </div>
         </header>
 

@@ -5,22 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arik Karim</title>
-    <meta name="description" content="Arik Karim — international economics and political science at the Elliott School (GWU). Policy research, emerging technology, and multilateral institutions.">
+    <meta name="description" content="Arik Karim is an AI policy fellow and international affairs and political science student interested in technology, law, and better government.">
 
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
 
     <link rel="canonical" href="https://arikkarim.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://arikkarim.com/">
     <meta property="og:title" content="Arik Karim">
-    <meta property="og:description" content="Economics and political science at the Elliott School. Policy research, technology, and multilateral cooperation.">
+    <meta property="og:description" content="AI policy, emerging technology, law, and better government.">
     <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://arikkarim.com/images/arik-speaking.jpeg">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Arik Karim">
-    <meta name="twitter:description" content="Economics and political science at the Elliott School. Policy research, technology, and multilateral cooperation.">
+    <meta name="twitter:description" content="AI policy, emerging technology, law, and better government.">
+    <meta name="twitter:image" content="https://arikkarim.com/images/arik-speaking.jpeg">
 
     <link rel="stylesheet" href="/css/theme-critical.css">
     <script src="/js/theme-boot.js"></script>
@@ -39,12 +41,19 @@
                 "name": "Arik Karim",
                 "url": "https://arikkarim.com/",
                 "email": "arik.karim@gwu.edu",
-                "jobTitle": "Student",
-                "affiliation": {
-                    "@type": "EducationalOrganization",
-                    "name": "George Washington University",
-                    "url": "https://www.gwu.edu/"
-                },
+                "jobTitle": "AI Policy Fellow",
+                "affiliation": [
+                    {
+                        "@type": "Organization",
+                        "name": "Software & Information Industry Association",
+                        "url": "https://www.siia.net/"
+                    },
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "George Washington University",
+                        "url": "https://www.gwu.edu/"
+                    }
+                ],
                 "sameAs": [
                     "https://github.com/ArikKarim",
                     "https://scholar.google.com/citations?user=ANVlVyoAAAAJ&hl=en",
@@ -61,80 +70,60 @@
 
     <link id="favicon" rel="icon" href="/akfavicon1.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/redesign.css">
     <script src="/js/script.js" defer></script>
 </head>
 
-<body>
+<body class="home-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="container">
         <header class="header">
-            <h1><a href="https://arikkarim.com/" class="home-link">Arik Karim</a></h1>
-            <div class="toggle-container">
-                <label class="toggle-switch">
-                    <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-                    <span class="slider" aria-hidden="true"></span>
-                </label>
+            <h1 class="site-title"><a href="https://arikkarim.com/" class="home-link">Arik Karim</a></h1>
+            <div class="header-actions">
+                <nav class="primary-nav" aria-label="Primary navigation">
+                    <a href="/writing/">Work</a>
+                    <a href="/reads/">Reads</a>
+                    <a href="/files/Karim%2C%20Arik_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+                </nav>
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="slider" aria-hidden="true"></span>
+                    </label>
+                </div>
             </div>
         </header>
 
-        <main id="main-content">
-            <section id="welcome">
-                <h2>Welcome</h2>
-                <p><strong>Hi, I’m Arik.</strong> I study international economics and political science at the <a href="https://elliott.gwu.edu/" target="_blank" rel="noopener noreferrer">Elliott School of International Affairs</a>. I'm fascinated by emerging technology, macroeconomics and global markets, diplomacy, and the law. In my free time, I enjoy speedcubing, cardistry, and poker.</p>
+        <main id="main-content" class="landing-main">
+            <section class="intro-grid" aria-labelledby="intro-heading">
+                <figure class="portrait-frame">
+                    <img src="/images/arik-speaking.jpeg" alt="Arik Karim speaking in a wood-paneled room" width="4000" height="6000" fetchpriority="high">
+                </figure>
 
-                <p><strong>Currently:</strong></p>
-                <ul>
-                    <li>AI policy fellow @ <a href="https://www.siia.net/" target="_blank" rel="noopener noreferrer">Software &amp; Information Industry Association</a></li>
-                    <li>Business development @ <a href="https://www.willkie.com/" target="_blank" rel="noopener noreferrer">Willkie Farr & Gallagher LLP</a></li>
-                    <li>Optimizing UX for students via the ChatGPT Lab @ <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI</a></li>
-                    <li>Overseeing youth-centered policy research @ <a href="https://thespringgroup.org/" target="_blank" rel="noopener noreferrer">The SPRING Group</a></li>
-                </ul>
+                <div class="intro-copy">
+                    <h2 id="intro-heading">Hi, I’m <em>Arik</em>.</h2>
+                    <div class="bio-copy">
+                        <p>I’m an AI Policy Fellow at the <a href="https://www.siia.net/" target="_blank" rel="noopener noreferrer">Software &amp; Information Industry Association</a> and a business development intern at <a href="https://www.willkie.com/" target="_blank" rel="noopener noreferrer">Willkie Farr &amp; Gallagher LLP</a>. I’m primarily interested in (1) how emerging technology shapes the law and (2) how government can work better for people.</p>
 
-                <p><strong>Previously:</strong></p>
-                <ul>
-                    <li>Critical Language Scholar (Japanese) @ the <a href="https://www.state.gov/" target="_blank" rel="noopener noreferrer">U.S. Department of State</a></li>
-                    <li>Early-stage growth/GTM consulting @ <a href="https://www.sway.co/" target="_blank" rel="noopener noreferrer">Sway</a></li>
-                    <li>Quality assurance engineering @ <a href="https://terac.com/" target="_blank" rel="noopener noreferrer">Terac</a></li>
-                    <li>Sociology and psychology research @ <a href="https://harvard.edu/" target="_blank" rel="noopener noreferrer">Harvard</a> &amp; <a href="https://columbia.edu/" target="_blank" rel="noopener noreferrer">Columbia</a></li>
-                    <li>Legislative drafting @ <a href="https://flsenate.gov/" target="_blank" rel="noopener noreferrer">The Florida Senate</a></li>
-                    <li>Japanese security politics and history research @ <a href="https://stanford.edu/" target="_blank" rel="noopener noreferrer">Stanford</a></li>
-                </ul>
-            </section>
+                        <p>I’m receiving my undergraduate degree from <a href="https://elliott.gwu.edu/" target="_blank" rel="noopener noreferrer">George Washington University</a> with a double major in international affairs and political science. During this time, I won the <a href="https://www.state.gov/" target="_blank" rel="noopener noreferrer">Critical Language Scholarship</a> in Japanese, wrote an Enosinian Scholars thesis on prediction markets, and advised on education UI/UX for <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI</a>. In my free time, I enjoy reading, poker, pickleball, and coffee-tasting.</p>
 
-            <section id="work">
-                <h2>Work</h2>
-                <p>A cross-section of my writing, public engagement, and academic credentials.</p>
-                <div class="button-row">
-                    <a href="/writing/" class="button">Writing</a>
-                    <a href="/engagement/" class="button">Public engagement</a>
-                    <a href="/files/Karim%2C%20Arik_CV.pdf" class="button" target="_blank" rel="noopener noreferrer">Curriculum vitae</a>
+                        <p>Feel free to reach out via <a href="mailto:arik.karim@gwu.edu">email</a> or <a href="https://linkedin.com/in/arikkarim/" target="_blank" rel="noopener noreferrer">LinkedIn</a>!</p>
+                    </div>
                 </div>
             </section>
 
-            <section id="reads">
-                <h2>Reads</h2>
-                <p><strong>Currently:</strong></p>
-                <ul>
-                    <li><a href="https://www.simonandschuster.com/books/Abundance/Ezra-Klein/9781668023488" target="_blank" rel="noopener noreferrer"><i>Abundance</i></a> by Ezra Klein and Derek Thompson</li>
-                    <li><a href="https://www.amazon.com/Superforecasting-Science-Prediction-Philip-Tetlock/dp/0804136718" target="_blank" rel="noopener noreferrer"><i>Superforecasting</i></a> by Philip Tetlock and Dan Gardner</li>
-                </ul>
-                <div class="button-row">
-                    <p><strong>Previously:</strong></p>
-                    <a href="/reads/" class="button">Bookshelf</a>
-                </div>
-            </section>
         </main>
 
         <footer class="footer">
             <nav class="footer-nav-wrap" aria-label="Elsewhere on the web">
                 <ul class="footer-nav">
-                    <li><a href="mailto:arik.karim@gwu.edu" class="email">email</a></li>
-                    <li><a href="https://github.com/ArikKarim" target="_blank" rel="noopener noreferrer" class="github">github</a></li>
-                    <li><a href="https://linkedin.com/in/arikkarim/" target="_blank" rel="noopener noreferrer" class="linkedin">linkedin</a></li>
-                    <li><a href="https://x.com/arikulkarim" target="_blank" rel="noopener noreferrer" class="twitter">twitter/x</a></li>
+                    <li><a href="mailto:arik.karim@gwu.edu" class="email">Email</a></li>
+                    <li><a href="https://github.com/ArikKarim" target="_blank" rel="noopener noreferrer" class="github">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/arikkarim/" target="_blank" rel="noopener noreferrer" class="linkedin">LinkedIn</a></li>
+                    <li><a href="https://x.com/arikulkarim" target="_blank" rel="noopener noreferrer" class="twitter">Twitter/X</a></li>
                 </ul>
             </nav>
-            <p class="footer-meta">© <span class="footer-year">2026</span> Arik Karim · <a href="https://arikkarim.com/">arikkarim.com</a></p>
+            <p class="footer-meta">© <span class="footer-year">2026</span> Arik Karim</p>
         </footer>
     </div>
 </body>
