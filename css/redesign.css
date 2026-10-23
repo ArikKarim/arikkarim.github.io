@@ -301,7 +301,7 @@ input:focus-visible + .slider {
 }
 
 .content-page .footer .footer-meta {
-    font-size: 0.74rem;
+    font-size: 0.74rem !important;
 }
 
 /* Interior pages */
