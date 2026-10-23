@@ -8,7 +8,7 @@
     --footer-text-color: #595750;
     --border-color: rgba(23, 23, 23, 0.58);
     --subtle-color: #e8e4db;
-    --page-gutter: clamp(1.25rem, 4.2vw, 3.25rem);
+    --page-gutter: clamp(1.25rem, 3.4vw, 3rem);
 }
 
 html.dark-mode {
@@ -52,7 +52,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    width: min(100%, 1364px);
+    width: min(100%, 1440px);
     min-height: 100vh;
     margin: 0 auto;
     padding: 2rem var(--page-gutter) 1.4rem;
@@ -186,15 +186,15 @@ input:focus-visible + .slider {
 
 .intro-grid {
     display: grid;
-    grid-template-columns: minmax(17rem, 0.72fr) minmax(30rem, 1.28fr);
+    grid-template-columns: minmax(21rem, 0.9fr) minmax(28rem, 1.1fr);
     align-items: center;
-    gap: clamp(4rem, 8.5vw, 7.1rem);
+    gap: clamp(3.5rem, 6vw, 5.25rem);
     width: 100%;
     margin: 0;
 }
 
 .portrait-frame {
-    width: min(100%, 27.2rem);
+    width: min(100%, 30rem);
     margin: 0;
     aspect-ratio: 2 / 3;
     overflow: hidden;
@@ -210,7 +210,7 @@ input:focus-visible + .slider {
 
 .intro-copy {
     align-self: center;
-    max-width: 45rem;
+    max-width: 42rem;
 }
 
 .intro-copy h2 {
@@ -228,9 +228,9 @@ input:focus-visible + .slider {
 }
 
 .bio-copy {
-    max-width: 43rem;
-    font-size: clamp(1.05rem, 1.5vw, 1.42rem);
-    line-height: 1.34;
+    max-width: 40rem;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .bio-copy p {
@@ -387,8 +387,8 @@ input:focus-visible + .slider {
     }
 
     .intro-grid {
-        grid-template-columns: minmax(15rem, 0.75fr) minmax(24rem, 1.25fr);
-        gap: 3.25rem;
+        grid-template-columns: minmax(18rem, 0.9fr) minmax(23rem, 1.1fr);
+        gap: 2.75rem;
     }
 
     .intro-copy h2 {
@@ -397,7 +397,8 @@ input:focus-visible + .slider {
     }
 
     .bio-copy {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 }
 
@@ -464,8 +465,8 @@ input:focus-visible + .slider {
     }
 
     .bio-copy {
-        font-size: 1rem;
-        line-height: 1.46;
+        font-size: 0.95rem;
+        line-height: 1.52;
     }
 
     .footer {
