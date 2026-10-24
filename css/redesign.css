@@ -238,6 +238,8 @@ input:focus-visible + .slider {
 }
 
 .intro-copy h2 em {
+    display: inline-block;
+    margin-left: 0.08em;
     font-weight: 400;
 }
 
