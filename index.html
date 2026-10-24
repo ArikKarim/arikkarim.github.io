@@ -24,6 +24,7 @@
     <meta name="twitter:description" content="AI policy, emerging technology, law, and better government.">
     <meta name="twitter:image" content="https://arikkarim.com/images/arik-speaking.jpeg">
 
+    <link rel="preload" as="image" href="/images/arik-speaking-color-480.webp" imagesrcset="/images/arik-speaking-color-480.webp 480w, /images/arik-speaking-color-960.webp 960w" imagesizes="(max-width: 760px) calc(100vw - 40px), 480px" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="/css/theme-critical.css">
     <script src="/js/theme-boot.js"></script>
 
@@ -97,7 +98,10 @@
         <main id="main-content" class="landing-main">
             <section class="intro-grid" aria-labelledby="intro-heading">
                 <figure class="portrait-frame" tabindex="0" aria-label="Portrait changes from black and white to color on hover or focus">
-                    <img src="/images/arik-speaking-color.jpeg" alt="Arik Karim speaking in a wood-paneled room" width="4000" height="6000" fetchpriority="high">
+                    <picture>
+                        <source type="image/webp" srcset="/images/arik-speaking-color-480.webp 480w, /images/arik-speaking-color-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 40px), 480px">
+                        <img src="/images/arik-speaking-color-960.jpg" alt="Arik Karim speaking in a wood-paneled room" width="480" height="720" loading="eager" decoding="async" fetchpriority="high">
+                    </picture>
                 </figure>
 
                 <div class="intro-copy">
