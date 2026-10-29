@@ -797,7 +797,7 @@ input:focus-visible + .slider {
     display: grid;
     grid-template-columns: 1.85rem 1fr;
     gap: 0.2rem;
-    align-items: baseline;
+    align-items: start;
     color: inherit;
     text-decoration: none;
 }
@@ -807,8 +807,12 @@ input:focus-visible + .slider {
 }
 
 .article-contents a span {
+    display: flex;
+    align-items: center;
+    min-height: 1.5em;
     color: var(--footer-text-color);
     font-size: 0.62rem;
+    line-height: 1;
     letter-spacing: 0.08em;
 }
 
@@ -886,7 +890,6 @@ input:focus-visible + .slider {
 .article-notes {
     margin-top: 4.5rem;
     padding-top: 2.25rem;
-    border-top: 1px solid var(--border-color);
 }
 
 .article-notes ol {
