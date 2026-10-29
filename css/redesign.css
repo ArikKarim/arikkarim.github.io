@@ -614,6 +614,296 @@ input:focus-visible + .slider {
     }
 }
 
+/* Long-form research articles */
+.article-shell {
+    max-width: 90rem;
+}
+
+.content-page .container > main.research-article {
+    padding: 4.75rem 0 7rem;
+}
+
+.article-hero {
+    max-width: 62rem;
+    margin: 0 auto 5.25rem;
+    padding: 0 0 3.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-kicker,
+.article-byline,
+.article-contents,
+.work-entry-meta,
+.work-entry-links {
+    font-family: "Inter", sans-serif;
+}
+
+.article-kicker,
+.work-entry-meta {
+    margin: 0 0 1.25rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.article-hero h2 {
+    max-width: 58rem;
+    margin: 0;
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(2.65rem, 6.5vw, 5.75rem);
+    font-weight: 400;
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+}
+
+.article-byline {
+    margin: 2rem 0 0;
+    font-size: 0.9rem;
+}
+
+.article-actions {
+    margin-top: 2rem;
+}
+
+.article-actions .button {
+    display: inline-block;
+    padding: 0.72rem 1rem;
+    border: 1px solid currentColor;
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.article-layout {
+    display: grid;
+    grid-template-columns: minmax(11rem, 15rem) minmax(0, 47rem);
+    justify-content: center;
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: start;
+}
+
+.article-contents {
+    position: sticky;
+    top: 2rem;
+    padding-top: 0.35rem;
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+.article-contents > p {
+    margin: 0 0 1.1rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.article-contents ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.article-contents li + li {
+    margin-top: 0.85rem;
+}
+
+.article-contents a {
+    color: inherit;
+    text-decoration-color: transparent;
+}
+
+.article-contents a:hover,
+.article-contents a:focus-visible {
+    color: var(--link-color);
+    text-decoration-color: currentColor;
+}
+
+.article-prose {
+    min-width: 0;
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(1rem, 1.15vw, 1.08rem);
+    line-height: 1.88;
+}
+
+.article-prose p {
+    margin: 0 0 1.55rem;
+}
+
+.article-prose h2,
+.article-prose h3,
+.article-prose h4 {
+    scroll-margin-top: 2rem;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    line-height: 1.22;
+}
+
+.article-prose h2 {
+    margin: 5rem 0 1.75rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.article-prose > h2:first-child {
+    margin-top: 0;
+}
+
+.article-prose h3 {
+    margin: 3.25rem 0 1.4rem;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+}
+
+.article-prose h4 {
+    margin: 2.5rem 0 1.25rem;
+    font-size: 1.08rem;
+    font-style: italic;
+}
+
+.article-prose sup {
+    margin-left: 0.08em;
+    font-family: "Inter", sans-serif;
+    font-size: 0.62em;
+    line-height: 0;
+}
+
+.article-prose a,
+.article-notes a {
+    overflow-wrap: anywhere;
+}
+
+.article-notes {
+    margin-top: 5.5rem;
+    padding-top: 2.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.article-notes ol {
+    margin: 0;
+    padding-left: 1.6rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.65;
+}
+
+.article-notes li {
+    padding-left: 0.35rem;
+}
+
+.article-notes li + li {
+    margin-top: 1rem;
+}
+
+.note-back {
+    margin-left: 0.25rem;
+    text-decoration: none;
+}
+
+.article-citation {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.65;
+}
+
+.work-index {
+    max-width: 55rem;
+}
+
+.work-entry {
+    margin-top: 3.25rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.work-entry h3 {
+    max-width: 47rem;
+    margin: 0 0 1.1rem;
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(1.55rem, 3vw, 2.35rem);
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.work-entry h3 a {
+    color: inherit;
+    text-decoration-color: transparent;
+}
+
+.work-entry h3 a:hover,
+.work-entry h3 a:focus-visible {
+    color: var(--link-color);
+    text-decoration-color: currentColor;
+}
+
+.work-entry > p:not([class]) {
+    max-width: 42rem;
+}
+
+.work-entry-links {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 1.4rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+    .content-page .container > main.research-article {
+        padding: 3.5rem 0 5rem;
+    }
+
+    .article-hero {
+        margin-bottom: 3rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .article-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .article-contents {
+        position: static;
+        padding: 0 0 2rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .article-contents ol {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem 1.25rem;
+    }
+
+    .article-contents li + li {
+        margin-top: 0;
+    }
+
+    .article-prose {
+        font-size: 0.98rem;
+        line-height: 1.78;
+    }
+}
+
+@media (max-width: 460px) {
+    .article-hero h2 {
+        font-size: clamp(2.25rem, 11vw, 3rem);
+    }
+
+    .article-contents ol {
+        grid-template-columns: 1fr;
+    }
+
+    .article-prose h2 {
+        margin-top: 4rem;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
