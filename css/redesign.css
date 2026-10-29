@@ -1277,8 +1277,7 @@ input:focus-visible + .slider {
     font-size: inherit;
 }
 .primary-nav a[aria-current="page"] {
-    text-decoration: underline;
-    text-underline-offset: 0.35em;
+    text-decoration: none;
 }
 @media (max-width: 460px) {
     .work-entry { grid-template-columns: 1fr; gap: 0.65rem; }
