@@ -122,7 +122,6 @@ body {
     transition: color 160ms ease, opacity 160ms ease;
 }
 
-.header .primary-nav a:hover,
 .header .primary-nav a:focus-visible {
     color: var(--link-color);
 }
@@ -1305,4 +1304,14 @@ input:focus-visible + .slider {
 }
 .ulr-prose h4 {
     font-size: 1rem;
+}
+
+/* Touch taps must not leave navigation in a sticky hover state. */
+@media (hover: hover) and (pointer: fine) {
+    .header .primary-nav a:hover {
+        color: var(--link-color);
+    }
+}
+.header .primary-nav a:not(:hover):not(:focus-visible) {
+    color: var(--text-color);
 }
