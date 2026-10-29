@@ -113,7 +113,7 @@ body {
 
 .header .primary-nav a,
 .header .primary-nav a:visited {
-    color: var(--link-color);
+    color: var(--text-color);
     font-size: 0.78rem;
     font-weight: 400;
     letter-spacing: 0.12em;
