@@ -1315,3 +1315,10 @@ input:focus-visible + .slider {
 .header .primary-nav a:not(:hover):not(:focus-visible) {
     color: var(--text-color);
 }
+/* Restore the original animated underline on content links. */
+main a:not(.button):not(.portrait-frame):not(.article-tool):not(.article-sidebar a):not(.article-notes a):not(sup a)::before {
+    display: block;
+}
+main a:not(.button):not(.portrait-frame):not(.article-tool):not(.article-sidebar a):not(.article-notes a):not(sup a):focus-visible::before {
+    width: 100%;
+}
