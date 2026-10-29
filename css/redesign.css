@@ -414,8 +414,118 @@ input:focus-visible + .slider {
     color: var(--footer-text-color);
 }
 
+.error-page .container {
+    min-height: 100vh;
+}
+
+.content-page .container > main.error-main {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+}
+
 .error-card {
-    max-width: 760px;
+    display: grid;
+    grid-template-columns: minmax(17rem, 0.72fr) minmax(24rem, 1.28fr);
+    align-items: center;
+    gap: clamp(3rem, 7vw, 7rem);
+    max-width: none;
+}
+
+.error-copy {
+    max-width: 30rem;
+}
+
+.error-code {
+    margin: 0 0 1.5rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.66rem !important;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.error-card h2 {
+    margin-bottom: 1.75rem;
+    font-size: clamp(3rem, 5.6vw, 5.2rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+}
+
+.error-message {
+    max-width: 25rem;
+    margin: 0;
+    color: var(--footer-text-color);
+    line-height: 1.6;
+}
+
+.error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.75rem;
+    margin-top: 2.5rem;
+}
+
+.error-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.error-home {
+    padding: 0 1.25rem;
+    border: 1px solid var(--text-color);
+    background: var(--text-color);
+    color: var(--background-color);
+}
+
+.error-home:hover,
+.error-home:focus-visible {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+.error-work {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.error-work:hover,
+.error-work:focus-visible {
+    border-color: var(--accent-color);
+}
+
+.error-image {
+    margin: 0;
+}
+
+.error-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: filter 300ms ease;
+}
+
+.error-image:hover img {
+    filter: grayscale(0);
+}
+
+.error-image figcaption {
+    margin-top: 0.8rem;
+    color: var(--footer-text-color);
+    font-family: "Inter", sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 @media (max-width: 980px) {
@@ -521,6 +631,23 @@ input:focus-visible + .slider {
 
     .content-page .container > main {
         padding: 3.5rem 0 4.5rem;
+    }
+
+    .content-page .container > main.error-main {
+        padding: 3.75rem 0 4.5rem;
+    }
+
+    .error-card {
+        grid-template-columns: 1fr;
+        gap: 3.25rem;
+    }
+
+    .error-copy {
+        max-width: 34rem;
+    }
+
+    .error-card h2 {
+        max-width: 9ch;
     }
 }
 

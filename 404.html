@@ -14,10 +14,10 @@
 
     <link id="favicon" rel="icon" href="/akfavicon1.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/redesign.css?v=20261023-9">
+    <link rel="stylesheet" href="/css/redesign.css?v=20261029-404-1">
     <script src="/js/script.js" defer></script>
 </head>
-<body class="content-page">
+<body class="content-page error-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="container">
         <header class="header">
@@ -37,15 +37,22 @@
             </div>
         </header>
 
-        <main id="main-content">
-            <section class="error-card">
-                <h2>Error 404: Page not found</h2>
-
-                <div class="video-embed">
-                    <img src="/images/404/arik404.jpg" alt="" loading="lazy">
+        <main id="main-content" class="error-main">
+            <section class="error-card" aria-labelledby="error-heading">
+                <div class="error-copy">
+                    <p class="error-code">Error 404</p>
+                    <h2 id="error-heading">You’ve wandered off course.</h2>
+                    <p class="error-message">The page you’re looking for doesn’t exist or may have moved.</p>
+                    <div class="error-actions">
+                        <a class="error-home" href="/">Return home</a>
+                        <a class="error-work" href="/writing/">View research</a>
+                    </div>
                 </div>
 
-                <p>Seems like you've hit a snag. Navigate back home in the header or footer!</p>
+                <figure class="error-image">
+                    <img src="/images/404/arik404.jpg" alt="A young Arik Karim riding a horse" width="3264" height="2448" decoding="async">
+                    <figcaption>Arik, briefly off course.</figcaption>
+                </figure>
             </section>
         </main>
 
