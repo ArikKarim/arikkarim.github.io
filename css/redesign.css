@@ -1105,6 +1105,11 @@ input:focus-visible + .slider {
     border-bottom: 1px solid var(--border-color);
 }
 
+.work-entry + .work-entry {
+    margin-top: 0;
+    border-top: 0;
+}
+
 .work-entry h3 {
     margin: 0;
     font-family: "Libre Baskerville", serif;
@@ -1132,6 +1137,27 @@ input:focus-visible + .slider {
     line-height: 1;
     color: var(--footer-text-color);
     text-transform: uppercase;
+}
+
+.article-preview {
+    width: min(100%, 47rem);
+    margin: 0 auto;
+}
+
+.article-preview-label {
+    margin: 0 0 1.5rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.66rem !important;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.article-preview p:not(.article-preview-label) {
+    margin: 0;
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(1rem, 1.35vw, 1.14rem);
+    line-height: 1.85;
 }
 
 @media (max-width: 760px) {
