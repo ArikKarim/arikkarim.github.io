@@ -657,6 +657,18 @@ input:focus-visible + .slider {
     letter-spacing: 0.005em;
 }
 
+.article-title-main,
+.article-title-subtitle {
+    display: block;
+}
+
+.article-title-subtitle {
+    margin-top: 0.42em;
+    font-size: 0.56em;
+    line-height: 1.2;
+    letter-spacing: 0.012em;
+}
+
 .article-byline {
     margin: 2rem 0 0;
     font-size: 0.9rem;
