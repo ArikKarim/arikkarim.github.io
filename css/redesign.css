@@ -652,7 +652,7 @@ input:focus-visible + .slider {
 
 .article-kicker {
     margin: 0;
-    font-size: 0.52rem;
+    font-size: 0.46rem;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -672,7 +672,7 @@ input:focus-visible + .slider {
 .article-date {
     margin: 0;
     color: var(--footer-text-color);
-    font-size: 0.52rem;
+    font-size: 0.46rem;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -680,7 +680,7 @@ input:focus-visible + .slider {
 
 .article-byline {
     margin: 0;
-    font-size: 0.82rem;
+    font-size: 0.95rem;
 }
 
 .article-tools {
