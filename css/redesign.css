@@ -1289,3 +1289,12 @@ input:focus-visible + .slider {
         text-align: left;
     }
 }
+
+/* Preserve the ULR source's section and subsection hierarchy. */
+.ulr-prose h2 {
+    font-weight: 700;
+}
+.ulr-prose h3,
+.ulr-prose h4 {
+    font-style: italic;
+}
