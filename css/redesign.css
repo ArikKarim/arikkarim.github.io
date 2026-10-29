@@ -688,17 +688,36 @@ input:focus-visible + .slider {
 .article-contents {
     position: sticky;
     top: 2rem;
-    padding-top: 0.35rem;
+    padding: 0.25rem 0 1.25rem;
     font-size: 0.72rem;
     line-height: 1.5;
 }
 
-.article-contents > p {
+.article-contents summary {
+    cursor: pointer;
+    list-style: none;
     margin: 0 0 1.1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.13em;
     text-transform: uppercase;
+}
+
+.article-contents summary::-webkit-details-marker {
+    display: none;
+}
+
+.article-contents summary::after {
+    content: "−";
+    float: right;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.article-contents:not([open]) summary::after {
+    content: "+";
 }
 
 .article-contents ol {
@@ -708,29 +727,42 @@ input:focus-visible + .slider {
 }
 
 .article-contents li + li {
-    margin-top: 0.85rem;
+    margin-top: 0.72rem;
 }
 
 .article-contents a {
+    display: grid;
+    grid-template-columns: 1.85rem 1fr;
+    gap: 0.2rem;
+    align-items: baseline;
     color: inherit;
-    text-decoration-color: transparent;
+    text-decoration: none;
+}
+
+.article-contents a:visited {
+    color: inherit;
+}
+
+.article-contents a span {
+    color: var(--footer-text-color);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
 }
 
 .article-contents a:hover,
 .article-contents a:focus-visible {
     color: var(--link-color);
-    text-decoration-color: currentColor;
 }
 
 .article-prose {
     min-width: 0;
     font-family: "Libre Baskerville", serif;
-    font-size: clamp(1rem, 1.15vw, 1.08rem);
-    line-height: 1.88;
+    font-size: clamp(0.98rem, 1.1vw, 1.06rem);
+    line-height: 1.82;
 }
 
 .article-prose p {
-    margin: 0 0 1.55rem;
+    margin: 0 0 1.35rem;
 }
 
 .article-prose h2,
@@ -769,6 +801,11 @@ input:focus-visible + .slider {
     line-height: 0;
 }
 
+.article-prose sup a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
 .article-prose a,
 .article-notes a {
     overflow-wrap: anywhere;
@@ -783,9 +820,9 @@ input:focus-visible + .slider {
 .article-notes ol {
     margin: 0;
     padding-left: 1.6rem;
-    font-family: "Inter", sans-serif;
-    font-size: 0.75rem;
-    line-height: 1.65;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.76rem;
+    line-height: 1.68;
 }
 
 .article-notes li {
@@ -793,7 +830,17 @@ input:focus-visible + .slider {
 }
 
 .article-notes li + li {
-    margin-top: 1rem;
+    margin-top: 0.9rem;
+}
+
+.article-notes cite {
+    font-style: italic;
+}
+
+.citation-smallcaps {
+    font-size: 1.06em;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.025em;
 }
 
 .note-back {
@@ -870,7 +917,7 @@ input:focus-visible + .slider {
 
     .article-contents {
         position: static;
-        padding: 0 0 2rem;
+        padding: 0 0 1.75rem;
         border-bottom: 1px solid var(--border-color);
     }
 
@@ -885,8 +932,8 @@ input:focus-visible + .slider {
     }
 
     .article-prose {
-        font-size: 0.98rem;
-        line-height: 1.78;
+        font-size: 0.96rem;
+        line-height: 1.76;
     }
 }
 
