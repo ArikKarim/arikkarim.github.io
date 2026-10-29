@@ -653,7 +653,8 @@ input:focus-visible + .slider {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 400;
     line-height: 1.03;
-    letter-spacing: -0.045em;
+    font-kerning: normal;
+    letter-spacing: 0.005em;
 }
 
 .article-byline {
@@ -690,6 +691,18 @@ input:focus-visible + .slider {
 .article-tool:hover,
 .article-tool:focus-visible {
     color: var(--link-color) !important;
+}
+
+.article-tool-icon {
+    width: 0.9rem;
+    height: 0.9rem;
+    flex: 0 0 auto;
+    margin-left: 0.75rem;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
 }
 
 .article-cite-tool summary {
