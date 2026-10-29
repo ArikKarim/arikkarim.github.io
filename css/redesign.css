@@ -779,7 +779,7 @@ input:focus-visible + .slider {
 
 .article-kicker {
     margin: 0;
-    font-size: 0.46rem;
+    font-size: 0.65rem;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -799,7 +799,7 @@ input:focus-visible + .slider {
 .article-date {
     margin: 0;
     color: var(--footer-text-color);
-    font-size: 0.46rem;
+    font-size: 0.65rem;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -987,7 +987,7 @@ input:focus-visible + .slider {
 .article-prose {
     min-width: 0;
     font-family: "Libre Baskerville", serif;
-    font-size: clamp(0.88rem, 0.92vw, 0.96rem);
+    font-size: 0.85rem;
     line-height: 1.72;
 }
 
@@ -1006,7 +1006,7 @@ input:focus-visible + .slider {
 
 .article-prose h2 {
     margin: 4.25rem 0 1.45rem;
-    font-size: clamp(1.65rem, 2.6vw, 2.25rem);
+    font-size: 1.08rem;
 }
 
 .article-prose > h2:first-child {
@@ -1015,12 +1015,12 @@ input:focus-visible + .slider {
 
 .article-prose h3 {
     margin: 2.75rem 0 1.2rem;
-    font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+    font-size: 0.98rem;
 }
 
 .article-prose h4 {
     margin: 2.15rem 0 1rem;
-    font-size: 1rem;
+    font-size: 0.92rem;
     font-style: italic;
 }
 
@@ -1196,7 +1196,7 @@ input:focus-visible + .slider {
     }
 
     .article-prose {
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         line-height: 1.68;
     }
 }
@@ -1236,5 +1236,56 @@ input:focus-visible + .slider {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
+    }
+}
+
+/* Academic writing archive */
+.archive-intro {
+    margin: 0.75rem 0 3rem;
+    color: var(--footer-text-color);
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.archive-section-title {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.work-entry {
+    margin-top: 1rem;
+    padding: 1.5rem 0;
+}
+.archive-entry-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    max-width: 12rem;
+    margin: 0;
+    color: var(--footer-text-color);
+    font-family: "Inter", sans-serif;
+    font-size: 0.65rem;
+    line-height: 1.5;
+    text-align: right;
+}
+.archive-entry-meta time {
+    font-size: inherit;
+}
+.primary-nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+}
+@media (max-width: 460px) {
+    .work-entry { grid-template-columns: 1fr; gap: 0.65rem; }
+    .archive-entry-meta {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: none;
+        text-align: left;
     }
 }
