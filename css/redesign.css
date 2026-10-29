@@ -111,8 +111,9 @@ body {
     gap: clamp(1.25rem, 2.3vw, 2rem);
 }
 
-.header .primary-nav a {
-    color: var(--text-color);
+.header .primary-nav a,
+.header .primary-nav a:visited {
+    color: var(--link-color);
     font-size: 0.78rem;
     font-weight: 400;
     letter-spacing: 0.12em;
