@@ -650,7 +650,7 @@ input:focus-visible + .slider {
     max-width: 58rem;
     margin: 0;
     font-family: "Libre Baskerville", serif;
-    font-size: clamp(2.65rem, 5.75vw, 5.1rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 400;
     line-height: 1.03;
     letter-spacing: -0.045em;
