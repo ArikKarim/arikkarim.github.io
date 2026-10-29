@@ -1292,9 +1292,17 @@ input:focus-visible + .slider {
 
 /* Preserve the ULR source's section and subsection hierarchy. */
 .ulr-prose h2 {
+    font-size: 1.3rem;
     font-weight: 700;
 }
 .ulr-prose h3,
 .ulr-prose h4 {
     font-style: italic;
+}
+
+.ulr-prose h3 {
+    font-size: 1.1rem;
+}
+.ulr-prose h4 {
+    font-size: 1rem;
 }
