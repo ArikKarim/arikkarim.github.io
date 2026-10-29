@@ -1,34 +1,30 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var article = document.querySelector('.article-prose');
-    var layout = document.querySelector('.article-layout');
-    var leftRail = document.querySelector('[data-sidenotes="left"]');
-    var rightRail = document.querySelector('[data-sidenotes="right"]');
-
     function copyText(text, button) {
         if (!navigator.clipboard) {
             return;
         }
+
         navigator.clipboard.writeText(text).then(function () {
-            var original = button.querySelector('span:first-child');
-            if (!original) {
-                original = button;
-            }
-            var label = original.textContent;
-            original.textContent = 'Copied';
+            var labelElement = button.querySelector('span:first-child') || button;
+            var label = labelElement.textContent;
+            labelElement.textContent = 'Copied';
             window.setTimeout(function () {
-                original.textContent = label;
+                labelElement.textContent = label;
             }, 1500);
         });
     }
 
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var articleUrl = canonical ? canonical.href : window.location.href;
     var shareButton = document.querySelector('[data-share-article]');
+
     if (shareButton) {
         shareButton.addEventListener('click', function () {
-            var shareData = { title: document.title, url: window.location.href };
+            var shareData = { title: document.title, url: articleUrl };
             if (navigator.share) {
                 navigator.share(shareData).catch(function () {});
             } else {
-                copyText(window.location.href, shareButton);
+                copyText(articleUrl, shareButton);
             }
         });
     }
@@ -36,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var urlButton = document.querySelector('[data-copy-url]');
     if (urlButton) {
         urlButton.addEventListener('click', function () {
-            copyText(document.querySelector('link[rel="canonical"]').href, urlButton);
+            copyText(articleUrl, urlButton);
         });
     }
 
@@ -48,73 +44,46 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (!article || !layout || !leftRail || !rightRail) {
-        return;
-    }
+    var contentsLinks = Array.from(document.querySelectorAll('.article-contents a[href^="#"]'));
+    var sections = contentsLinks.map(function (link) {
+        return document.querySelector(link.getAttribute('href'));
+    }).filter(Boolean);
 
-    function buildSidenotes() {
-        leftRail.innerHTML = '';
-        rightRail.innerHTML = '';
-
-        if (window.innerWidth < 1120) {
+    function updateActiveSection() {
+        if (!sections.length) {
             return;
         }
 
-        article.querySelectorAll('sup[id^="ref-"]').forEach(function (reference) {
-            var number = reference.id.replace('ref-', '');
-            var note = document.getElementById('note-' + number);
-            if (!note) {
-                return;
+        var threshold = Math.max(120, window.innerHeight * 0.24);
+        var active = sections[0];
+        sections.forEach(function (section) {
+            if (section.getBoundingClientRect().top <= threshold) {
+                active = section;
             }
-
-            var sidenote = document.createElement('div');
-            sidenote.className = 'sidenote';
-            sidenote.dataset.reference = reference.id;
-
-            var marker = document.createElement('span');
-            marker.className = 'sidenote-number';
-            marker.textContent = number;
-
-            var content = note.querySelector('span').cloneNode(true);
-            content.querySelectorAll('a').forEach(function (link) {
-                link.remove();
-            });
-
-            sidenote.appendChild(marker);
-            sidenote.appendChild(content);
-            (Number(number) % 2 ? leftRail : rightRail).appendChild(sidenote);
         });
 
-        window.requestAnimationFrame(positionSidenotes);
-    }
-
-    function positionRail(rail) {
-        var layoutTop = layout.getBoundingClientRect().top;
-        var nextTop = 0;
-
-        rail.querySelectorAll('.sidenote').forEach(function (sidenote) {
-            var reference = document.getElementById(sidenote.dataset.reference);
-            var desiredTop = reference.getBoundingClientRect().top - layoutTop - 2;
-            var top = Math.max(desiredTop, nextTop);
-            sidenote.style.top = top + 'px';
-            nextTop = top + sidenote.offsetHeight + 18;
+        contentsLinks.forEach(function (link) {
+            var isActive = link.getAttribute('href') === '#' + active.id;
+            link.classList.toggle('is-active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'location');
+            } else {
+                link.removeAttribute('aria-current');
+            }
         });
     }
 
-    function positionSidenotes() {
-        if (window.innerWidth < 1120) {
+    var scrollTicking = false;
+    window.addEventListener('scroll', function () {
+        if (scrollTicking) {
             return;
         }
-        positionRail(leftRail);
-        positionRail(rightRail);
-    }
+        scrollTicking = true;
+        window.requestAnimationFrame(function () {
+            updateActiveSection();
+            scrollTicking = false;
+        });
+    }, { passive: true });
 
-    var resizeTimer;
-    window.addEventListener('resize', function () {
-        window.clearTimeout(resizeTimer);
-        resizeTimer = window.setTimeout(buildSidenotes, 120);
-    });
-
-    buildSidenotes();
-    window.addEventListener('load', positionSidenotes);
+    updateActiveSection();
 });
