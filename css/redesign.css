@@ -1324,7 +1324,7 @@ main a:not(.button):not(.portrait-frame):not(.article-tool):not(.article-sidebar
 }
 
 /* Curated reading list */
-.reading-page { max-width: 52rem; font-family: "Libre Baskerville", Georgia, serif; }
+.reading-page { max-width: 52rem; }
 .content-page .reading-intro {
     margin: 0.9rem 0 2.75rem;
     color: var(--footer-text-color);
@@ -1334,7 +1334,7 @@ main a:not(.button):not(.portrait-frame):not(.article-tool):not(.article-sidebar
 .reading-section + .reading-section { margin-top: 3.5rem; }
 .reading-section > h3 {
     margin: 0 0 1rem;
-    font-family: "Libre Baskerville", Georgia, serif;
+    font-family: "Inter", sans-serif;
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -1358,10 +1358,19 @@ main a:not(.button):not(.portrait-frame):not(.article-tool):not(.article-sidebar
     display: block;
     margin-top: 0.3rem;
     color: var(--footer-text-color);
-    font-family: "Libre Baskerville", Georgia, serif;
+    font-family: "Inter", sans-serif;
     font-size: 0.78rem;
     line-height: 1.5;
 }
 @media (max-width: 460px) {
     .content-page .reading-list li { font-size: 0.9rem; padding: 1rem 0; }
+}
+
+.reading-page > h2 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    margin: 0 0 1.25rem;
 }
