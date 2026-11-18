@@ -1322,3 +1322,46 @@ main a:not(.button):not(.portrait-frame):not(.article-tool):not(.article-sidebar
 main a:not(.button):not(.portrait-frame):not(.article-tool):not(.article-sidebar a):not(.article-notes a):not(sup a):focus-visible::before {
     width: 100%;
 }
+
+/* Curated reading list */
+.reading-page { max-width: 52rem; }
+.content-page .reading-intro {
+    margin: 0.9rem 0 2.75rem;
+    color: var(--footer-text-color);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+.reading-section + .reading-section { margin-top: 3.5rem; }
+.reading-section > h3 {
+    margin: 0 0 1rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.content-page main.reading-page .reading-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--border-color);
+}
+.content-page .reading-list li {
+    margin: 0;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+.reading-list .reading-author {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--footer-text-color);
+    font-family: "Inter", sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+@media (max-width: 460px) {
+    .content-page .reading-list li { font-size: 0.9rem; padding: 1rem 0; }
+}
